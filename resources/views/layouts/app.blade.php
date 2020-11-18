@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('AdminLTE-3.0.5/dist/css/adminlte.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    @livewireStyles
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -319,6 +320,7 @@
 <script src="{{ asset('AdminLTE-3.0.5/dist/js/adminlte.min.js') }}"></script>
 
 
+@livewireScripts
 @stack('scripts')
 
 </body>
