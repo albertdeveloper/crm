@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\PermissionRepository;
+use App\Repositories\PermissionRepositoryContract;
 use App\Repositories\UserRepository;
 use App\Repositories\UserRepositoryContract;
 use Illuminate\Support\ServiceProvider;
@@ -26,5 +28,6 @@ class RepositoriesServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind(UserRepositoryContract::class,UserRepository::class);
+        $this->app->bind(PermissionRepositoryContract::class,PermissionRepository::class);
     }
 }

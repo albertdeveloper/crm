@@ -32,6 +32,7 @@ Route::group([
 
 
     Route::get('/permissions',[AdminController::class, 'permissions'])->name('userManagement.permissions');
+    Route::get('/create/permission', [AdminController::class, 'create_permission'])->name('userManagement.createPermission');
 });
 
 

@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PermissionFormRequest;
+use App\Repositories\PermissionRepositoryContract;
 use App\Repositories\UserRepositoryContract;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     private $userRepository;
+    private $permissionRepository;
 
-    public function __construct(UserRepositoryContract $userRepositoryContract)
+    public function __construct(UserRepositoryContract $userRepositoryContract,
+                                PermissionRepositoryContract $permissionRepositoryContract)
     {
         $this->userRepository = $userRepositoryContract;
+        $this->permissionRepository = $permissionRepositoryContract;
     }
 
     public function dashboard()
@@ -47,6 +52,13 @@ class AdminController extends Controller
 
     public function permissions()
     {
-        return view('admin.management.user.permission');
+        return view('admin.management.user.permission',[
+            'permissions' => $this->permissionRepository->getPermissions(),
+        ]);
+    }
+
+    public function create_permission(PermissionFormRequest $request)
+    {
+
     }
 }
