@@ -170,6 +170,38 @@
                         </a>
                     </li>
 
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-users nav-icon"></i>
+                            <p>
+                                User Management
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-user-lock nav-icon"></i>
+                                    <p>Permission</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-briefcase nav-icon"></i>
+                                    <p>Roles</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-user nav-icon"></i>
+                                    <p>Users</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
                         <a href="{{ route('admin.organisations') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.organisations') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-globe "></i>
