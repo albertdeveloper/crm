@@ -162,7 +162,8 @@
                          with font-awesome or any other icon font library -->
 
                     <li class="nav-item">
-                        <a href="{{ route('admin.dashboard') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.dashboard') ? 'active' : '' }}">
+                        <a href="{{ route('admin.dashboard') }}"
+                           class="nav-link {{ (Route::currentRouteName() == 'admin.dashboard') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-home "></i>
                             <p>
                                 Dashboard
@@ -170,17 +171,20 @@
                         </a>
                     </li>
 
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
+
+                    <li class="nav-item has-treeview {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions'])) ? 'menu-open' : '' }}">
+                        <a href="#"
+                           class="nav-link {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions'])) ? 'active' : '' }}">
                             <i class="fas fa-users nav-icon"></i>
                             <p>
                                 User Management
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview" style="display: none;">
+                        <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('admin.userManagement.permissions') }}"
+                                   class="nav-link {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions'])) ? 'active' : '' }}">
                                     <i class="fas fa-user-lock nav-icon"></i>
                                     <p>Permission</p>
                                 </a>
@@ -202,8 +206,10 @@
                         </ul>
                     </li>
 
+
                     <li class="nav-item">
-                        <a href="{{ route('admin.organisations') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.organisations') ? 'active' : '' }}">
+                        <a href="{{ route('admin.organisations') }}"
+                           class="nav-link {{ (Route::currentRouteName() == 'admin.organisations') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-globe "></i>
                             <p>
                                 Organisations
@@ -212,7 +218,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('admin.users') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.users') ? 'active' : '' }}">
+                        <a href="{{ route('admin.users') }}"
+                           class="nav-link {{ (Route::currentRouteName() == 'admin.users') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-users "></i>
                             <p>
                                 Users
@@ -221,7 +228,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('admin.profile') }}" class="nav-link {{ (Route::currentRouteName() == 'admin.profile') ? 'active' : '' }}">
+                        <a href="{{ route('admin.profile') }}"
+                           class="nav-link {{ (Route::currentRouteName() == 'admin.profile') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-user"></i>
                             <p>
                                 My Profile

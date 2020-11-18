@@ -41,4 +41,12 @@ class AdminController extends Controller
         $this->userRepository->save_profile($request);
         return redirect()->route('admin.profile');
     }
+
+
+    //User Management
+
+    public function permissions()
+    {
+        return view('admin.management.user.permission');
+    }
 }

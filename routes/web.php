@@ -29,6 +29,9 @@ Route::group([
     Route::get('/users', [AdminController::class, 'users'])->name('users');
     Route::get('/profile', [AdminController::class, 'profile'])->name('profile');
     Route::post('/profile', [AdminController::class, 'profile_store']);
+
+
+    Route::get('/permissions',[AdminController::class, 'permissions'])->name('userManagement.permissions');
 });
 
 
