@@ -5,4 +5,5 @@ interface PermissionRepositoryContract
 {
     public function getPermissions();
     public function save($request);
+    public function delete($id);
 }
