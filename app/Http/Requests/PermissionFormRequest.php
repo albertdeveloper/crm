@@ -24,7 +24,7 @@ class PermissionFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'
+            'title' => 'required'
         ];
     }
 }

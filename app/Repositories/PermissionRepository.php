@@ -7,6 +7,14 @@ class PermissionRepository implements PermissionRepositoryContract
 {
     public function getPermissions()
     {
-        return Permission::get();
+        return Permission::orderBy('created_at','desc')->get();
     }
+
+    public function save($request)
+    {
+        Permission::updateOrCreate(
+            ['id' => $request->id],
+            ['title' => $request->title]);
+    }
+
 }

@@ -1,5 +1,6 @@
 /node_modules
 /public/hot
+/public/AdminLTE-3.0.5
 /public/storage
 /storage/*.key
 /vendor

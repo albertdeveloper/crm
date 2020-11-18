@@ -36,7 +36,7 @@ class AdminController extends Controller
 
     public function profile()
     {
-        return view('admin.profile',[
+        return view('admin.profile', [
             'user' => $this->userRepository->findUserById(false),
         ]);
     }
@@ -52,13 +52,19 @@ class AdminController extends Controller
 
     public function permissions()
     {
-        return view('admin.management.user.permission.index',[
+        return view('admin.management.user.permission.index', [
             'permissions' => $this->permissionRepository->getPermissions(),
         ]);
     }
 
-    public function create_permission(PermissionFormRequest $request)
+    public function create_permission()
     {
+        return view('admin.management.user.permission.create');
+    }
 
+    public function create_permission_store(PermissionFormRequest $request)
+    {
+        $this->permissionRepository->save($request);
+        return redirect()->route('admin.userManagement.permissions');
     }
 }
