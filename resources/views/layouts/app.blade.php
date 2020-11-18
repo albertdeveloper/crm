@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
 
+
+    @stack('styles')
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('AdminLTE-3.0.5/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
@@ -315,5 +317,9 @@
 <script src="{{ asset('AdminLTE-3.0.5/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('AdminLTE-3.0.5/dist/js/adminlte.min.js') }}"></script>
+
+
+@stack('scripts')
+
 </body>
 </html>
