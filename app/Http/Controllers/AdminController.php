@@ -52,7 +52,7 @@ class AdminController extends Controller
 
     public function permissions()
     {
-        return view('admin.management.user.permission.index', [
+        return view('admin.management.user.permissions.index', [
             'permissions' => $this->permissionRepository->getPermissions(),
         ]);
     }
@@ -67,4 +67,10 @@ class AdminController extends Controller
         $this->permissionRepository->save($request);
         return redirect()->route('admin.userManagement.permissions');
     }
+
+    public function roles()
+    {
+        return view('admin.management.user.roles.index');
+    }
+
 }
