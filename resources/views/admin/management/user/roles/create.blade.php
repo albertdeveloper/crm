@@ -10,13 +10,43 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="title">Title</label>
-                    @if($errors->has('title')) <div class="float-right">{{$errors->first('title')}}</div> @endif
+                    @if($errors->has('title'))
+                        <div class="float-right">{{$errors->first('title')}}</div> @endif
                     <x-input type="text" name="title" id="title" class="form-control"/>
                 </div>
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Permisisons</label>
+                        <select class="select2bs4" multiple="multiple" data-placeholder="Select a State" name="permissions[]"
+                                style="width: 100%;">
+                            @foreach($permissions as $permission)
+                                <option value="{{$permission->id}}">{{$permission->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
             </div>
+
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Create role</button>
             </div>
         </form>
     </div>
+
+    @push('scripts')
+
+        <script
+            src="{{ asset('AdminLTE-3.0.5/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+
+        <script>
+            $(function () {
+                $('.select2bs4').select2({
+                    theme: 'bootstrap4'
+                })
+            });
+
+        </script>
+    @endpush
 </x-app-layout>
+

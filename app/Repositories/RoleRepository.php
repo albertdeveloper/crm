@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use App\Models\Role;
@@ -12,9 +13,10 @@ class RoleRepository implements RoleRepositoryContract
 
     public function save($request)
     {
-        Role::updateOrCreate(
-            ['id' => $request->id ],
-            ['title' => $request->title]);
+        $create_role = Role::create(['title' => $request->title]);
+        //set permissions to role
+        if (isset($request->permissions) && sizeOf($request->permissions) > 0) {
+            foreach ($request->permissions as $k => $value) $create_role->permissions()->attach((int)$value);
+        }
     }
-
 }

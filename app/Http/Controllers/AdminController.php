@@ -80,7 +80,9 @@ class AdminController extends Controller
 
     public function create_roles()
     {
-        return view('admin.management.user.roles.create');
+        return view('admin.management.user.roles.create',[
+            'permissions' => $this->permissionRepository->getPermissions(),
+        ]);
     }
 
     public function create_roles_store(RoleFormRequest $request)

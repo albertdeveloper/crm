@@ -12,6 +12,8 @@
 
 
 
+    <link rel="stylesheet" href="{{ asset('AdminLTE-3.0.5/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('AdminLTE-3.0.5/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('AdminLTE-3.0.5/dist/css/adminlte.min.css') }}">
     @stack('styles')
     <!-- Scripts -->
@@ -317,6 +319,7 @@
 
 <!-- REQUIRED SCRIPTS -->
 
+<script src="{{ asset('AdminLTE-3.0.5/plugins/moment/moment.min.js')}}"></script>
 <!-- jQuery -->
 <script src="{{ asset('AdminLTE-3.0.5/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
@@ -324,6 +327,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('AdminLTE-3.0.5/dist/js/adminlte.min.js') }}"></script>
 
+<script src="{{ asset('AdminLTE-3.0.5/plugins/select2/js/select2.full.min.js') }}"></script>
 
 @stack('scripts')
 @livewireScripts

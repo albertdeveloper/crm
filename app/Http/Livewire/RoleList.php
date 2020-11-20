@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Repositories\PermissionRepository;
 use App\Repositories\RoleRepository;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -20,7 +21,6 @@ class RoleList extends Component
     public function __construct()
     {
         $this->roleRepository = new RoleRepository();
-
     }
 
     public function setForAction($id)
@@ -45,8 +45,10 @@ class RoleList extends Component
 
     public function render()
     {
-        return view('livewire.role-list',[
-            'roles' => $this->roleRepository->getRoles()]
+        return view('livewire.role-list', [
+                'roles' => $this->roleRepository->getRoles(),
+
+            ]
         );
     }
 }
