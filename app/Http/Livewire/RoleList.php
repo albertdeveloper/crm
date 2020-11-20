@@ -15,7 +15,8 @@ class RoleList extends Component
 
     protected $paginationTheme = 'bootstrap';
     private $roleRepository;
-    public $actionId;
+
+    public $actionId = array();
 
 
     public function __construct()
@@ -25,7 +26,11 @@ class RoleList extends Component
 
     public function setForAction($id)
     {
-        $this->actionId = $id;
+        if(!in_array($id,$this->actionId)) $this->actionId[] = $id;
+        else {
+            $existing  = array_search($id,$this->actionId);
+            unset($this->actionId[$existing]);
+        }
     }
 
     public function view()
@@ -40,14 +45,13 @@ class RoleList extends Component
 
     public function delete()
     {
-        $this->permissionRepository->delete($this->actionId);
+        $this->roleRepository->delete($this->actionId);
     }
 
     public function render()
     {
         return view('livewire.role-list', [
                 'roles' => $this->roleRepository->getRoles(),
-
             ]
         );
     }

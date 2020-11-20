@@ -10,10 +10,10 @@
                     @if(sizeOf($roles) > 0)
                         <div class="float-left">
                             <button class="btn btn-xs btn-primary mr-1"
-                                    {{$actionId ? '' : 'disabled'}}  wire:click="view()"><i
+                                    {{ ($actionId && sizeof($actionId) == 1) ? '' : 'disabled'}}  wire:click="view()"><i
                                     class="fas fa-eye"></i> View
                             </button>
-                            <button class="btn btn-xs btn-info mr-1" {{$actionId ? '' : 'disabled'}}  wire:click="update()">
+                            <button class="btn btn-xs btn-info mr-1" {{ ($actionId && sizeof($actionId) == 1) ? '' : 'disabled'}}  wire:click="update()">
                                 <i
                                     class="fas fa-pencil-alt"></i> Update
                             </button>
@@ -30,12 +30,12 @@
                                    aria-describedby="example2_info">
                                 <thead>
                                 <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                    <th class="sorting_asc " tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                         aria-sort="ascending"
                                         aria-label="Rendering engine: activate to sort column descending">
                                         <span class="ml-4">Title</span>
                                     </th>
-                                    <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                    <th class="sorting_asc   " tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                         aria-sort="ascending"
                                         aria-label="Rendering engine: activate to sort column descending">
                                         <span class="ml-4">Permissions</span>
@@ -48,7 +48,7 @@
                                 @foreach($roles as $role)
                                     <tr role="row">
                                         <td tabindex="0" class="sorting_1">
-                                            <input type="radio" class="mt-1" name="permission[]"
+                                            <input type="checkbox" class="mt-1" name="permission[]"
                                                    wire:click.lazy="setForAction({{$role->id}})"/> <span
                                                 class="ml-2">{{$role->title}}</span>
                                         </td>

@@ -17,7 +17,7 @@ class PermissionRepository implements PermissionRepositoryContract
 
     public function getPermissions()
     {
-        return Permission::orderBy('created_at','desc')->paginate(2);
+        return Permission::orderBy('created_at','desc')->paginate(10);
     }
 
 

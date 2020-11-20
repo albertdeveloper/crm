@@ -26,4 +26,10 @@ class RoleRepository implements RoleRepositoryContract
         if(!$id) return;
         return Role::find($id);
     }
+
+    public function delete($ids)
+    {
+        if(sizeof($ids) == 0) return;
+        Role::whereIn('id',$ids)->delete();
+    }
 }
