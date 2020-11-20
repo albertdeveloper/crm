@@ -33,12 +33,12 @@
                                     <th class="sorting_asc " tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                         aria-sort="ascending"
                                         aria-label="Rendering engine: activate to sort column descending">
-                                        <span class="ml-4">Title</span>
+                                        <span class="ml-4">User</span>
                                     </th>
                                     <th class="sorting_asc   " tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                         aria-sort="ascending"
                                         aria-label="Rendering engine: activate to sort column descending">
-                                        <span class="ml-4">Permissions</span>
+                                        <span class="ml-4">Roles</span>
                                     </th>
 
                                 </tr>
@@ -54,6 +54,9 @@
                                         </td>
                                         <td>
 
+                                            @foreach($user->roles as $role)
+                                                <button class="btn btn-primary btn-sm">{{$role->title}}</button>
+                                            @endforeach
                                         </td>
                                     </tr>
                                 @endforeach

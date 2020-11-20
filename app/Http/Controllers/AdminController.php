@@ -108,5 +108,6 @@ class AdminController extends Controller
     public function create_user_store(UserFormRequest $request)
     {
         $this->userRepository->save($request);
+        return redirect()->route('admin.userManagement.users');
     }
 }
