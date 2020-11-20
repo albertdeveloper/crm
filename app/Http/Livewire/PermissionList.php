@@ -35,7 +35,7 @@ class PermissionList extends Component
 
     public function update()
     {
-
+        return redirect()->route('admin.userManagement.processPermission',['id'=>$this->actionId]);
     }
 
     public function delete()

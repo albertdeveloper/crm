@@ -62,9 +62,12 @@ class AdminController extends Controller
         ]);
     }
 
-    public function create_permission()
+    public function create_permission($id = false)
     {
-        return view('admin.management.user.permissions.create');
+
+        return view('admin.management.user.permissions.process',[
+            'isUpdate' => $this->permissionRepository->findViaId($id),
+        ]);
     }
 
     public function create_permission_store(PermissionFormRequest $request)
