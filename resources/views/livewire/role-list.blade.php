@@ -33,7 +33,7 @@
                                     <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                         aria-sort="ascending"
                                         aria-label="Rendering engine: activate to sort column descending">
-                                        <span class="ml-4">Permission</span>
+                                        <span class="ml-4">Title</span>
                                     </th>
                                 </tr>
                                 </thead>
