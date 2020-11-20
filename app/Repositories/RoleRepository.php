@@ -23,7 +23,7 @@ class RoleRepository implements RoleRepositoryContract
     }
     public function findViaId($id)
     {
-        if(!$id) return [];
+        if(!$id) return;
         return Role::find($id);
     }
 }

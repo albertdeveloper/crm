@@ -23,7 +23,7 @@ class PermissionRepository implements PermissionRepositoryContract
 
     public function findViaId($id)
     {
-        if(!$id) return [];
+        if(!$id) return ;
         return Permission::findOrFail($id);
     }
 
@@ -34,9 +34,10 @@ class PermissionRepository implements PermissionRepositoryContract
             ['title' => $request->title]);
     }
 
-    public function delete($id)
+    public function delete($ids)
     {
-        $this->findViaId($id)->delete();
+        if(sizeof($ids) == 0) return;
+        Permission::whereIn('id',$ids)->delete();
     }
 
 }

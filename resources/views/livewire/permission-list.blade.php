@@ -13,10 +13,10 @@
                 @if(sizeOf($permissions) > 0)
                     <div class="float-left">
                         <button class="btn btn-xs btn-primary mr-1"
-                                {{$actionId ? '' : 'disabled'}}  wire:click="view()"><i
+                                {{ ($actionId && sizeof($actionId) == 1)  ? '' : 'disabled'}}  wire:click="view()"><i
                                 class="fas fa-eye"></i> View
                         </button>
-                        <button class="btn btn-xs btn-info mr-1" {{$actionId ? '' : 'disabled'}}  wire:click="update()">
+                        <button class="btn btn-xs btn-info mr-1" {{($actionId && sizeof($actionId) == 1) ? '' : 'disabled'}}   wire:click="update()">
                             <i
                                 class="fas fa-pencil-alt"></i> Update
                         </button>
@@ -43,7 +43,7 @@
                             @foreach($permissions as $permission)
                                 <tr role="row">
                                     <td tabindex="0" class="sorting_1">
-                                        <input type="radio" class="mt-1" name="permission[]"
+                                        <input type="checkbox" class="mt-1" name="permission[]"
                                                wire:click.lazy="setForAction({{$permission->id}})"/> <span
                                             class="ml-2">{{$permission->title}}</span>
                                     </td>
