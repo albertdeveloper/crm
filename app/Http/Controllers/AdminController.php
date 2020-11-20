@@ -34,10 +34,7 @@ class AdminController extends Controller
         return view('admin.organisations.index');
     }
 
-    public function users()
-    {
-        return view('admin.users.index');
-    }
+
 
     public function profile()
     {
@@ -94,4 +91,10 @@ class AdminController extends Controller
         $this->roleRepository->save($request);
         return redirect()->route('admin.userManagement.roles');
     }
+
+    public function users()
+    {
+        return view('admin.management.user.users.index');
+    }
+
 }
