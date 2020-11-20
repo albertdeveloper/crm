@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Permission;
 use App\Models\Role;
 
 class RoleRepository implements RoleRepositoryContract
@@ -15,8 +16,9 @@ class RoleRepository implements RoleRepositoryContract
     {
         $create_role = Role::create(['title' => $request->title]);
         //set permissions to role
-        if (isset($request->permissions) && sizeOf($request->permissions) > 0) {
-            foreach ($request->permissions as $k => $value) $create_role->permissions()->attach((int)$value);
+        if ($request->permissions !== null || $request->set_all !== null) {
+            $permissions = ($request->set_all !== null) ? Permission::get() : $request->permissions;
+            foreach ($permissions as $k => $value) $create_role->permissions()->attach($value ?? $value->id);
         }
     }
 }

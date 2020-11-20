@@ -17,7 +17,8 @@
 
                 <div class="form-group">
                     <div class="form-group">
-                        <label>Permisisons</label>
+                        <label>Permissions</label>
+                        <span class="ml-4"><input type="checkbox" id="all" name="set_all"/> <label for="all">Set all</label></span>
                         <select class="select2bs4" multiple="multiple" data-placeholder="Select a State" name="permissions[]"
                                 style="width: 100%;">
                             @foreach($permissions as $permission)
