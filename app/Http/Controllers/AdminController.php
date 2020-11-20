@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PermissionFormRequest;
 use App\Http\Requests\RoleFormRequest;
+use App\Http\Requests\UserFormRequest;
 use App\Repositories\PermissionRepositoryContract;
 use App\Repositories\RoleRepositoryContract;
 use App\Repositories\UserRepositoryContract;
@@ -97,4 +98,15 @@ class AdminController extends Controller
         return view('admin.management.user.users.index');
     }
 
+    public function create_user($id = false)
+    {
+        return view('admin.management.user.users.process',[
+            'userInfo' => $this->userRepository->findViaId($id),
+            'roles' => $this->roleRepository->getRoles(),
+        ]);
+    }
+    public function create_user_store(UserFormRequest $request)
+    {
+        $this->userRepository->save($request);
+    }
 }

@@ -16,6 +16,14 @@ class UserRepository implements UserRepositoryContract
         return User::findOrFail($id);
     }
 
+    public function findViaId($id)
+    {
+        if (!$id) return;
+
+        return User::findOrFail($id);
+
+    }
+
     public function save_profile($request)
     {
         //save it to user table
@@ -35,7 +43,26 @@ class UserRepository implements UserRepositoryContract
                 'country' => $request->country
             ]
         );
+    }
 
+    public function getAllUserForAdmin()
+    {
+        return User::where('id', '!=', auth()->user()->id)->paginate();
+    }
+
+    public function save($request)
+    {
+
+      $user =  User::updateOrCreate(
+            ['id' => $request->id],
+            [
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => $request->password,
+            ]
+        );
+
+      $user->roles()->attach($request->role);
 
     }
 

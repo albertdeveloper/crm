@@ -40,6 +40,8 @@ Route::group([
     Route::post('/create/roles/{id?}', [AdminController::class, 'create_roles_store']);
 
     Route::get('/users',[AdminController::class, 'users'])->name('userManagement.users');
+    Route::get('/create/user/{id?}',[AdminController::class,'create_user'])->name('userManagement.processUsers');
+    Route::post('/create/user/{id?}',[AdminController::class,'create_user_store']);
 
 });
 
