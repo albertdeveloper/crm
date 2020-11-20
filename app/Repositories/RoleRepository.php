@@ -14,11 +14,18 @@ class RoleRepository implements RoleRepositoryContract
 
     public function save($request)
     {
-        $create_role = Role::create(['title' => $request->title]);
+        $create_role = Role::updateOrCreate(
+            ['id' => $request->id],
+            ['title' => $request->title],
+        );
         //set permissions to role
         if ($request->permissions !== null || $request->set_all !== null) {
             $permissions = ($request->set_all !== null) ? Permission::get() : $request->permissions;
-            foreach ($permissions as $k => $value) $create_role->permissions()->attach($value ?? $value->id);
+            foreach ($permissions as $k => $value) {
+                //check if already existing
+                $real_value = $value ?? $value->id;
+                if (!in_array($real_value, $create_role->permissions()->pluck('permissions.id')->toArray()))  $create_role->permissions()->attach($real_value);
+            }
         }
     }
     public function findViaId($id)
