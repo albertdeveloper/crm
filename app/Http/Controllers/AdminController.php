@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PermissionFormRequest;
+use App\Http\Requests\RoleFormRequest;
 use App\Repositories\PermissionRepositoryContract;
+use App\Repositories\RoleRepositoryContract;
 use App\Repositories\UserRepositoryContract;
 use Illuminate\Http\Request;
 
@@ -11,12 +13,15 @@ class AdminController extends Controller
 {
     private $userRepository;
     private $permissionRepository;
+    private $roleRepository;
 
     public function __construct(UserRepositoryContract $userRepositoryContract,
-                                PermissionRepositoryContract $permissionRepositoryContract)
+                                PermissionRepositoryContract $permissionRepositoryContract,
+                                RoleRepositoryContract $roleRepositoryContract)
     {
         $this->userRepository = $userRepositoryContract;
         $this->permissionRepository = $permissionRepositoryContract;
+        $this->roleRepository = $roleRepositoryContract;
     }
 
     public function dashboard()
@@ -73,4 +78,14 @@ class AdminController extends Controller
         return view('admin.management.user.roles.index');
     }
 
+    public function create_roles()
+    {
+        return view('admin.management.user.roles.create');
+    }
+
+    public function create_roles_store(RoleFormRequest $request)
+    {
+        $this->roleRepository->save($request);
+        return redirect()->route('admin.userManagement.roles');
+    }
 }

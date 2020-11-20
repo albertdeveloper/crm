@@ -1,10 +1,10 @@
 <div>
     <div>
-        <a href="{{ route('admin.userManagement.createPermission') }}" class="btn btn-primary">Add Role</a>
+        <a href="{{ route('admin.userManagement.createRoles') }}" class="btn btn-primary">Add Role</a>
         <div class="mt-3">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="m-0">Permission List</h5>
+                    <h5 class="m-0">Roles List</h5>
                 </div>
                 <div class="card-body">
                     @if(sizeOf($roles) > 0)

@@ -9,4 +9,12 @@ class RoleRepository implements RoleRepositoryContract
     {
         return Role::paginate();
     }
+
+    public function save($request)
+    {
+        Role::updateOrCreate(
+            ['id' => $request->id ],
+            ['title' => $request->title]);
+    }
+
 }
