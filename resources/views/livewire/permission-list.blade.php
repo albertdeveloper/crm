@@ -5,7 +5,11 @@
             <div class="card-header">
                 <h5 class="m-0">Permission List</h5>
             </div>
+            
             <div class="card-body">
+                <div class="float-right">
+                    <input type="text" class="form-control" wire:model="search"/>
+                </div>
                 @if(sizeOf($permissions) > 0)
                     <div class="float-left">
                         <button class="btn btn-xs btn-primary mr-1"
@@ -21,9 +25,7 @@
                             Delete
                         </button>
                     </div>
-                    <div class="float-right">
-                        <input type="text" class="form-control" wire:model="search"/>
-                    </div>
+
                     <div class="mt-5">
                         <table class="table table-bordered table-hove" role="grid"
                                aria-describedby="example2_info">

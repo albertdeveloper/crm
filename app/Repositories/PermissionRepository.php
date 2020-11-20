@@ -6,10 +6,20 @@ use App\Models\Permission;
 
 class PermissionRepository implements PermissionRepositoryContract
 {
+    public function getPermissionViaLivewire($search_field)
+    {
+        $query =  Permission::query();
+        if($search_field) $query->where('title','like','%'.$search_field.'%');
+        $query->orderBy('created_at','desc');
+
+        return $query->paginate(2);
+    }
+
     public function getPermissions()
     {
         return Permission::orderBy('created_at','desc')->paginate(2);
     }
+
 
     public function findViaId($id)
     {

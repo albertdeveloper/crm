@@ -13,6 +13,7 @@ class PermissionList extends Component
 
     protected $paginationTheme = 'bootstrap';
     private $permissionRepository;
+    public $search;
     public $actionId;
 
 
@@ -46,7 +47,7 @@ class PermissionList extends Component
     public function render()
     {
         return view('livewire.permission-list', [
-            'permissions' => $this->permissionRepository->getPermissions(),
+            'permissions' => $this->permissionRepository->getPermissionViaLivewire($this->search),
         ]);
     }
 }

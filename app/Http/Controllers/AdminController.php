@@ -59,7 +59,7 @@ class AdminController extends Controller
 
     public function create_permission()
     {
-        return view('admin.management.user.permission.create');
+        return view('admin.management.user.permissions.create');
     }
 
     public function create_permission_store(PermissionFormRequest $request)
