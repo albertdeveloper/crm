@@ -12,7 +12,7 @@
                     <label for="title">Title</label>
                     @if($errors->has('title'))
                         <div class="float-right">{{$errors->first('title')}}</div> @endif
-                    <x-input type="text" name="title" id="title" class="form-control"/>
+                    <x-input type="text" name="title" id="title" class="form-control" value="{!! old('title') !!}"/>
                 </div>
 
                 <div class="form-group">
