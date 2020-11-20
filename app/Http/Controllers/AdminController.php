@@ -66,7 +66,7 @@ class AdminController extends Controller
     {
 
         return view('admin.management.user.permissions.process',[
-            'isUpdate' => $this->permissionRepository->findViaId($id),
+            'permissionInfo' => $this->permissionRepository->findViaId($id),
         ]);
     }
 
@@ -81,10 +81,11 @@ class AdminController extends Controller
         return view('admin.management.user.roles.index');
     }
 
-    public function create_roles()
+    public function create_roles($id = false)
     {
-        return view('admin.management.user.roles.create',[
+        return view('admin.management.user.roles.process',[
             'permissions' => $this->permissionRepository->getPermissions(),
+            'roleInfo'    => $this->roleRepository->findViaId($id),
         ]);
     }
 

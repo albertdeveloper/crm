@@ -1,9 +1,8 @@
 <x-app-layout>
     <div class="card card-default">
         <div class="card-header">
-            <h3 class="card-title">Create Roles</h3>
+            <h3 class="card-title">{{ ($roleInfo) ? 'Update' : 'Create'  }}  Roles</h3>
         </div>
-
 
         <form method="POST">
             @csrf
@@ -12,8 +11,9 @@
                     <label for="title">Title</label>
                     @if($errors->has('title'))
                         <div class="float-right">{{$errors->first('title')}}</div> @endif
-                    <x-input type="text" name="title" id="title" class="form-control" value="{!! old('title') !!}"/>
+                    <x-input type="text" name="title" id="title" class="form-control" value="{!! ($roleInfo) ? $roleInfo->title : old('title') !!}"/>
                 </div>
+
 
                 <div class="form-group">
                     <div class="form-group">
@@ -22,7 +22,7 @@
                         <select class="select2bs4" multiple="multiple" data-placeholder="Select a State" name="permissions[]"
                                 style="width: 100%;">
                             @foreach($permissions as $permission)
-                                <option value="{{$permission->id}}">{{$permission->title}}</option>
+                                <option value="{{$permission->id}}" @if(in_array($permission->id,$roleInfo->permissions->pluck('id')->toArray())) selected @endif>{{$permission->title}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Create role</button>
+                <button type="submit" class="btn btn-primary">{{ ($roleInfo) ? 'Update' : 'Create'  }} role</button>
             </div>
         </form>
     </div>

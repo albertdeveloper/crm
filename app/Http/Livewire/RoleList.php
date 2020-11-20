@@ -35,7 +35,7 @@ class RoleList extends Component
 
     public function update()
     {
-
+        return redirect()->route('admin.userManagement.processRoles',['id'=>$this->actionId]);
     }
 
     public function delete()

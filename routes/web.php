@@ -36,8 +36,8 @@ Route::group([
     Route::post('/create/permission/{id?}', [AdminController::class, 'create_permission_store']);
 
     Route::get('/roles',[AdminController::class,'roles'])->name('userManagement.roles');
-    Route::get('/create/roles', [AdminController::class, 'create_roles'])->name('userManagement.createRoles');
-    Route::post('/create/roles', [AdminController::class, 'create_roles_store']);
+    Route::get('/create/roles/{id?}', [AdminController::class, 'create_roles'])->name('userManagement.processRoles');
+    Route::post('/create/roles/{id?}', [AdminController::class, 'create_roles_store']);
 
 });
 

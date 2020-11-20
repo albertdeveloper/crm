@@ -21,4 +21,9 @@ class RoleRepository implements RoleRepositoryContract
             foreach ($permissions as $k => $value) $create_role->permissions()->attach($value ?? $value->id);
         }
     }
+    public function findViaId($id)
+    {
+        if(!$id) return [];
+        return Role::find($id);
+    }
 }

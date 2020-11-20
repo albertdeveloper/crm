@@ -1,6 +1,6 @@
 <div>
     <div>
-        <a href="{{ route('admin.userManagement.createRoles') }}" class="btn btn-primary">Add Role</a>
+        <a href="{{ route('admin.userManagement.processRoles') }}" class="btn btn-primary">Add Role</a>
         <div class="mt-3">
             <div class="card">
                 <div class="card-header">
