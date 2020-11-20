@@ -181,9 +181,9 @@
                     </li>
 
 
-                    <li class="nav-item has-treeview {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions'])) ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions','admin.userManagement.roles'])) ? 'menu-open' : '' }}">
                         <a href="#"
-                           class="nav-link {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions'])) ? 'active' : '' }}">
+                           class="nav-link {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions','admin.userManagement.roles'])) ? 'active' : '' }}">
                             <i class="fas fa-users nav-icon"></i>
                             <p>
                                 User Management
@@ -199,7 +199,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.userManagement.roles') }}" class="nav-link">
+                                <a href="{{ route('admin.userManagement.roles') }}" class="nav-link {{ (in_array(Route::currentRouteName(),['admin.userManagement.roles'])) ? 'active' : '' }}">
                                     <i class="fas fa-briefcase nav-icon"></i>
                                     <p>Roles</p>
                                 </a>
@@ -211,7 +211,6 @@
                                     <p>Users</p>
                                 </a>
                             </li>
-
                         </ul>
                     </li>
 
