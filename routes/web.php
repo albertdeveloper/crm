@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrganisationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,8 +25,9 @@ Route::group([
     'as' => 'admin.',
     'middleware' => ['auth'],
 ], function () {
+
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::get('/organisations', [AdminController::class, 'organisations'])->name('organisations');
+    Route::get('/organisations', [OrganisationController::class, 'index'])->name('organisations');
     Route::get('/users', [AdminController::class, 'users'])->name('users');
     Route::get('/profile', [AdminController::class, 'profile'])->name('profile');
     Route::post('/profile', [AdminController::class, 'profile_store']);
