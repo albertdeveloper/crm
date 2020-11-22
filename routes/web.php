@@ -32,16 +32,16 @@ Route::group([
 
 
     Route::get('/permissions',[AdminController::class, 'permissions'])->name('userManagement.permissions');
-    Route::get('/create/permission/{id?}', [AdminController::class, 'create_permission'])->name('userManagement.processPermission');
-    Route::post('/create/permission/{id?}', [AdminController::class, 'create_permission_store']);
+    Route::get('/process/permission/{id?}', [AdminController::class, 'process_permission'])->name('userManagement.processPermission');
+    Route::post('/process/permission/{id?}', [AdminController::class, 'process_permission_store']);
 
     Route::get('/roles',[AdminController::class,'roles'])->name('userManagement.roles');
-    Route::get('/create/roles/{id?}', [AdminController::class, 'create_roles'])->name('userManagement.processRoles');
-    Route::post('/create/roles/{id?}', [AdminController::class, 'create_roles_store']);
+    Route::get('/process/role/{id?}', [AdminController::class, 'process_roles'])->name('userManagement.processRoles');
+    Route::post('/process/role/{id?}', [AdminController::class, 'process_roles_store']);
 
     Route::get('/users',[AdminController::class, 'users'])->name('userManagement.users');
-    Route::get('/create/user/{id?}',[AdminController::class,'create_user'])->name('userManagement.processUsers');
-    Route::post('/create/user/{id?}',[AdminController::class,'create_user_store']);
+    Route::get('/process/user/{id?}',[AdminController::class,'process_user'])->name('userManagement.processUsers');
+    Route::post('/process/user/{id?}',[AdminController::class,'process_user_store']);
 
 });
 

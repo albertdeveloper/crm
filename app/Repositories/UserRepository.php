@@ -47,7 +47,9 @@ class UserRepository implements UserRepositoryContract
 
     public function getAllUserForAdmin()
     {
-        return User::where('id', '!=', auth()->user()->id)->paginate();
+        return User::whereHas('roles',function($query){
+            return $query->where('title','User');
+        })->paginate();
     }
 
     public function save($request)
@@ -61,8 +63,7 @@ class UserRepository implements UserRepositoryContract
                 'password' => $request->password,
             ]
         );
-
-      $user->roles()->attach($request->role);
+      $user->roles()->sync($request->role);
 
     }
 

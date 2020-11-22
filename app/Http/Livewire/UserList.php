@@ -12,6 +12,7 @@ class UserList extends Component
 
     protected $paginationTheme = 'bootstrap';
     private $userRepository;
+    public $search;
 
     public $actionId = array();
 
@@ -37,7 +38,7 @@ class UserList extends Component
 
     public function update()
     {
-        return redirect()->route('admin.userManagement.processRoles',['id'=>$this->actionId]);
+        return redirect()->route('admin.userManagement.processUsers',['id'=>$this->actionId[0]]);
     }
 
     public function delete()
@@ -48,7 +49,7 @@ class UserList extends Component
     public function render()
     {
         return view('livewire.user-list',[
-            'users' => $this->userRepository->getAllUserForAdmin() ?? [],
+            'users' => $this->userRepository->getAllUserForAdmin($this->search) ?? [],
         ]);
     }
 }

@@ -60,7 +60,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function create_permission($id = false)
+    public function process_permission($id = false)
     {
 
         return view('admin.management.user.permissions.process',[
@@ -68,7 +68,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function create_permission_store(PermissionFormRequest $request)
+    public function process_permission_store(PermissionFormRequest $request)
     {
         $this->permissionRepository->save($request);
         return redirect()->route('admin.userManagement.permissions');
@@ -79,7 +79,7 @@ class AdminController extends Controller
         return view('admin.management.user.roles.index');
     }
 
-    public function create_roles($id = false)
+    public function process_roles($id = false)
     {
         return view('admin.management.user.roles.process',[
             'permissions' => $this->permissionRepository->getPermissions(),
@@ -87,7 +87,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function create_roles_store(RoleFormRequest $request)
+    public function process_roles_store(RoleFormRequest $request)
     {
         $this->roleRepository->save($request);
         return redirect()->route('admin.userManagement.roles');
@@ -98,16 +98,18 @@ class AdminController extends Controller
         return view('admin.management.user.users.index');
     }
 
-    public function create_user($id = false)
+    public function process_user($id = false)
     {
         return view('admin.management.user.users.process',[
             'userInfo' => $this->userRepository->findViaId($id),
             'roles' => $this->roleRepository->getRoles(),
         ]);
     }
-    public function create_user_store(UserFormRequest $request)
+    public function process_user_store(UserFormRequest $request)
     {
         $this->userRepository->save($request);
         return redirect()->route('admin.userManagement.users');
     }
+
+
 }
