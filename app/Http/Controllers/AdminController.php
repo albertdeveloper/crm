@@ -9,6 +9,7 @@ use App\Repositories\PermissionRepositoryContract;
 use App\Repositories\RoleRepositoryContract;
 use App\Repositories\UserRepositoryContract;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class AdminController extends Controller
 {
@@ -55,6 +56,8 @@ class AdminController extends Controller
 
     public function permissions()
     {
+        abort_unless(Gate::allows('user_management_permission_access'), 403);
+
         return view('admin.management.user.permissions.index', [
             'permissions' => $this->permissionRepository->getPermissions(),
         ]);
@@ -62,7 +65,7 @@ class AdminController extends Controller
 
     public function process_permission($id = false)
     {
-
+        abort_unless(Gate::allows('user_management_create_permission'),403);
         return view('admin.management.user.permissions.process',[
             'permissionInfo' => $this->permissionRepository->findViaId($id),
         ]);
@@ -70,6 +73,7 @@ class AdminController extends Controller
 
     public function process_permission_store(PermissionFormRequest $request)
     {
+        abort_unless(Gate::allows('user_management_create_permission'),403);
         $this->permissionRepository->save($request);
         return redirect()->route('admin.userManagement.permissions');
     }

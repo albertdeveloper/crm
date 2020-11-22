@@ -181,7 +181,7 @@
                         </a>
                     </li>
 
-
+                    @can('user_management_access')
                     <li class="nav-item has-treeview {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions','admin.userManagement.roles','admin.userManagement.users'])) ? 'menu-open' : '' }}">
                         <a href="#"
                            class="nav-link {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions','admin.userManagement.roles','admin.userManagement.users'])) ? 'active' : '' }}">
@@ -214,7 +214,7 @@
                             </li>
                         </ul>
                     </li>
-
+                    @endcan
 
                     <li class="nav-item">
                         <a href="{{ route('admin.organisations') }}"
