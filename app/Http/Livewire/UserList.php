@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -43,8 +44,15 @@ class UserList extends Component
 
     public function delete()
     {
+        self::allowed_gate('users_destroy');
         $this->userRepository->delete($this->actionId);
     }
+
+    public static function allowed_gate($ability)
+    {
+        abort_unless(Gate::allows($ability),403);
+    }
+
 
     public function render()
     {

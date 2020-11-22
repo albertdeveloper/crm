@@ -18,7 +18,7 @@ class PermissionController extends Controller
 
     public function index()
     {
-        abort_unless(Gate::allows('user_management_permission_access'), 403);
+        self::allowed_gate('permission_access');
 
         return view('admin.management.user.permissions.index', [
             'permissions' => $this->permissionRepository->getPermissions(),
@@ -27,7 +27,8 @@ class PermissionController extends Controller
 
     public function process_permission($id = false)
     {
-        abort_unless(Gate::allows('user_management_create_permission'), 403);
+        self::allowed_gate('permission_process');
+
         return view('admin.management.user.permissions.process', [
             'permissionInfo' => $this->permissionRepository->findViaId($id),
         ]);
@@ -35,8 +36,14 @@ class PermissionController extends Controller
 
     public function process_permission_store(PermissionFormRequest $request)
     {
-        abort_unless(Gate::allows('user_management_create_permission'), 403);
+        self::allowed_gate('permission_process');
         $this->permissionRepository->save($request);
         return redirect()->route('admin.permissions.index');
     }
+
+    public static function allowed_gate($ability)
+    {
+        abort_unless(Gate::allows($ability),403);
+    }
+
 }

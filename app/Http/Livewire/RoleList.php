@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Repositories\PermissionRepository;
 use App\Repositories\RoleRepository;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -45,7 +46,13 @@ class RoleList extends Component
 
     public function delete()
     {
+        self::allowed_gate('roles_destroy');
         $this->roleRepository->delete($this->actionId);
+    }
+
+    public static function allowed_gate($ability)
+    {
+        abort_unless(Gate::allows($ability),403);
     }
 
     public function render()

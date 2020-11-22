@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Repositories\PermissionRepository;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -44,7 +45,13 @@ class PermissionList extends Component
 
     public function delete()
     {
+        self::allowed_gate('permission_destroy');
         $this->permissionRepository->delete($this->actionId);
+    }
+
+    public static function allowed_gate($ability)
+    {
+        abort_unless(Gate::allows($ability),403);
     }
 
 

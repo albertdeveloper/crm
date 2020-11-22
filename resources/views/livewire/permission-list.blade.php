@@ -17,13 +17,13 @@
                                 {{ ($actionId && sizeof($actionId) == 1)  ? '' : 'disabled'}}  wire:click="view()"><i
                                 class="fas fa-eye"></i> View
                         </button>
-                        @can('user_management_update_permission')
+                        @can('permission_process')
                         <button class="btn btn-xs btn-info mr-1" {{($actionId && sizeof($actionId) == 1) ? '' : 'disabled'}}   wire:click="update()">
                             <i
                                 class="fas fa-pencil-alt"></i> Update
                         </button>
                         @endcan
-                        @can('user_management_destroy_permission')
+                        @can('permission_destroy')
                         <button class="btn btn-xs btn-danger" {{$actionId ? ' ' : 'disabled'}}  wire:click="delete()" ><i
                                 class="fas fa-trash"></i>
                             Delete
