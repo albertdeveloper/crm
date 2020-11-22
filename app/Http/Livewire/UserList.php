@@ -32,11 +32,6 @@ class UserList extends Component
         }
     }
 
-    public function view()
-    {
-
-    }
-
     public function update()
     {
         return redirect()->route('admin.users.process',['id'=>$this->actionId[0]]);
@@ -52,7 +47,6 @@ class UserList extends Component
     {
         abort_unless(Gate::allows($ability),403);
     }
-
 
     public function render()
     {

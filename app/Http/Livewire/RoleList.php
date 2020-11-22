@@ -10,15 +10,10 @@ use Livewire\WithPagination;
 
 class RoleList extends Component
 {
-
-
     use WithPagination;
-
     protected $paginationTheme = 'bootstrap';
     private $roleRepository;
-
     public $actionId = array();
-
 
     public function __construct()
     {
@@ -32,11 +27,6 @@ class RoleList extends Component
             $existing  = array_search($id,$this->actionId);
             unset($this->actionId[$existing]);
         }
-    }
-
-    public function view()
-    {
-
     }
 
     public function update()

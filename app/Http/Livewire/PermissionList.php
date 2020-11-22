@@ -33,11 +33,6 @@ class PermissionList extends Component
         }
     }
 
-    public function view()
-    {
-
-    }
-
     public function update()
     {
         return redirect()->route('admin.permissions.process',['id'=>$this->actionId[0] ]);
@@ -53,7 +48,6 @@ class PermissionList extends Component
     {
         abort_unless(Gate::allows($ability),403);
     }
-
 
     public function render()
     {
