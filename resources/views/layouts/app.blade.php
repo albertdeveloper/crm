@@ -193,21 +193,21 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('admin.userManagement.permissions') }}"
-                                   class="nav-link {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions'])) ? 'active' : '' }}">
+                                <a href="{{ route('admin.permissions.index') }}"
+                                   class="nav-link {{ (in_array(Route::currentRouteName(),['admin.permissions.index'])) ? 'active' : '' }}">
                                     <i class="fas fa-user-lock nav-icon"></i>
                                     <p>Permission</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.userManagement.roles') }}" class="nav-link {{ (in_array(Route::currentRouteName(),['admin.userManagement.roles'])) ? 'active' : '' }}">
+                                <a href="{{ route('admin.roles.index') }}" class="nav-link {{ (in_array(Route::currentRouteName(),['admin.roles.index'])) ? 'active' : '' }}">
                                     <i class="fas fa-briefcase nav-icon"></i>
                                     <p>Roles</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('admin.userManagement.users') }}" class="nav-link {{ (in_array(Route::currentRouteName(),['admin.userManagement.users'])) ? 'active' : '' }} ">
+                                <a href="{{ route('admin.users.index') }}" class="nav-link {{ (in_array(Route::currentRouteName(),['admin.users.index'])) ? 'active' : '' }} ">
                                     <i class="fas fa-user nav-icon"></i>
                                     <p>Users</p>
                                 </a>

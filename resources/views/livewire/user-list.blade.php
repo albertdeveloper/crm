@@ -1,6 +1,6 @@
 <div>
     <div>
-        <a href="{{ route('admin.userManagement.processUsers') }}" class="btn btn-primary">Add User</a>
+        <a href="{{ route('admin.users.process') }}" class="btn btn-primary">Add User</a>
         <div class="mt-3">
             <div class="card">
                 <div class="card-header">

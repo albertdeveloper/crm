@@ -38,7 +38,7 @@ class UserList extends Component
 
     public function update()
     {
-        return redirect()->route('admin.userManagement.processUsers',['id'=>$this->actionId[0]]);
+        return redirect()->route('admin.users.process',['id'=>$this->actionId[0]]);
     }
 
     public function delete()

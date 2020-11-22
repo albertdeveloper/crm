@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrganisationController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,24 +29,24 @@ Route::group([
     'middleware' => ['auth'],
 ], function () {
 
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
     Route::get('/organisations', [OrganisationController::class, 'index'])->name('organisations');
-    Route::get('/users', [AdminController::class, 'users'])->name('users');
-    Route::get('/profile', [AdminController::class, 'profile'])->name('profile');
-    Route::post('/profile', [AdminController::class, 'profile_store']);
+    Route::get('/users', [UserController::class, 'users'])->name('users');
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+    Route::post('/profile', [UserController::class, 'profile_store']);
 
 
-    Route::get('/permissions',[AdminController::class, 'permissions'])->name('userManagement.permissions');
-    Route::get('/process/permission/{id?}', [AdminController::class, 'process_permission'])->name('userManagement.processPermission');
-    Route::post('/process/permission/{id?}', [AdminController::class, 'process_permission_store']);
+    Route::get('/permissions',[PermissionController::class, 'index'])->name('permissions.index');
+    Route::get('/process/permission/{id?}', [PermissionController::class, 'process_permission'])->name('permissions.process');
+    Route::post('/process/permission/{id?}', [PermissionController::class, 'process_permission_store']);
 
-    Route::get('/roles',[AdminController::class,'roles'])->name('userManagement.roles');
-    Route::get('/process/role/{id?}', [AdminController::class, 'process_roles'])->name('userManagement.processRoles');
-    Route::post('/process/role/{id?}', [AdminController::class, 'process_roles_store']);
+    Route::get('/roles',[RoleController::class,'index'])->name('roles.index');
+    Route::get('/process/role/{id?}', [RoleController::class, 'process_roles'])->name('roles.process');
+    Route::post('/process/role/{id?}', [RoleController::class, 'process_roles_store']);
 
-    Route::get('/users',[AdminController::class, 'users'])->name('userManagement.users');
-    Route::get('/process/user/{id?}',[AdminController::class,'process_user'])->name('userManagement.processUsers');
-    Route::post('/process/user/{id?}',[AdminController::class,'process_user_store']);
+    Route::get('/users',[UserController::class, 'index'])->name('users.index');
+    Route::get('/process/user/{id?}',[UserController::class,'process_user'])->name('users.process');
+    Route::post('/process/user/{id?}',[UserController::class,'process_user_store']);
 
 });
 
