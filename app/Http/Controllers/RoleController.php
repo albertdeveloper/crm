@@ -5,17 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RoleFormRequest;
 use App\Repositories\PermissionRepositoryContract;
 use App\Repositories\RoleRepositoryContract;
-use App\Repositories\UserRepositoryContract;
-use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
+    private $permissionRepository;
+    private $roleRepository;
 
-    public function __construct(UserRepositoryContract $userRepositoryContract,
-                                PermissionRepositoryContract $permissionRepositoryContract,
+    public function __construct(PermissionRepositoryContract $permissionRepositoryContract,
                                 RoleRepositoryContract $roleRepositoryContract)
     {
-        $this->userRepository = $userRepositoryContract;
         $this->permissionRepository = $permissionRepositoryContract;
         $this->roleRepository = $roleRepositoryContract;
     }
@@ -27,9 +25,9 @@ class RoleController extends Controller
 
     public function process_roles($id = false)
     {
-        return view('admin.management.user.roles.process',[
+        return view('admin.management.user.roles.process', [
             'permissions' => $this->permissionRepository->getPermissions(),
-            'roleInfo'    => $this->roleRepository->findViaId($id),
+            'roleInfo' => $this->roleRepository->findViaId($id),
         ]);
     }
 
@@ -38,5 +36,4 @@ class RoleController extends Controller
         $this->roleRepository->save($request);
         return redirect()->route('admin.userManagement.roles');
     }
-
 }

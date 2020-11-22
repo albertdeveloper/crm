@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PermissionFormRequest;
-use App\Http\Requests\RoleFormRequest;
 use App\Http\Requests\UserFormRequest;
-use App\Repositories\PermissionRepositoryContract;
 use App\Repositories\RoleRepositoryContract;
 use App\Repositories\UserRepositoryContract;
 use Illuminate\Support\Facades\Gate;
@@ -13,15 +10,12 @@ use Illuminate\Support\Facades\Gate;
 class UserController extends Controller
 {
     private $userRepository;
-    private $permissionRepository;
     private $roleRepository;
 
     public function __construct(UserRepositoryContract $userRepositoryContract,
-                                PermissionRepositoryContract $permissionRepositoryContract,
                                 RoleRepositoryContract $roleRepositoryContract)
     {
         $this->userRepository = $userRepositoryContract;
-        $this->permissionRepository = $permissionRepositoryContract;
         $this->roleRepository = $roleRepositoryContract;
     }
 
@@ -34,7 +28,6 @@ class UserController extends Controller
     {
         return view('admin.organisations.index');
     }
-
 
 
     public function profile()
@@ -50,8 +43,6 @@ class UserController extends Controller
         return redirect()->route('admin.profile');
     }
 
-
-
     public function index()
     {
         return view('admin.management.user.users.index');
@@ -59,11 +50,12 @@ class UserController extends Controller
 
     public function process_user($id = false)
     {
-        return view('admin.management.user.users.process',[
+        return view('admin.management.user.users.process', [
             'userInfo' => $this->userRepository->findViaId($id),
             'roles' => $this->roleRepository->getRoles(),
         ]);
     }
+
     public function process_user_store(UserFormRequest $request)
     {
         $this->userRepository->save($request);
