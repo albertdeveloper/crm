@@ -47,14 +47,14 @@
 
                                 @foreach($roles as $role)
                                     <tr role="row">
-                                        <td tabindex="0" class="sorting_1">
+                                        <td tabindex="0" class="sorting_1 w-50">
                                             <input type="checkbox" class="mt-1" name="permission[]"
                                                    wire:click.lazy="setForAction({{$role->id}})"/> <span
                                                 class="ml-2">{{$role->title}}</span>
                                         </td>
                                         <td>
                                             @foreach($role->permissions as $permission)
-                                                <button class="btn btn-primary btn-sm">{{$permission->title}}</button>
+                                                <button class="btn btn-primary btn-sm mt-1 ml-1">{{$permission->title}}</button>
                                             @endforeach
                                         </td>
                                     </tr>

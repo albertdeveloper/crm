@@ -13,14 +13,13 @@
                         <div class="float-right">{{$errors->first('title')}}</div> @endif
                     <x-input type="text" name="title" id="title" class="form-control" value="{!! ($roleInfo) ? $roleInfo->title : old('title') !!}"/>
                 </div>
-                
+
                 <div class="form-group">
                     <div class="form-group">
                         <label>Permissions</label>
                         <span class="ml-4"><input type="checkbox" id="all" name="set_all"/> <label for="all">Set all</label></span>
-                        <select class="select2bs4" multiple="multiple" data-placeholder="Select a State" name="permissions[]"
+                        <select class="select2bs4" multiple="multiple" data-placeholder="Select Permissions" name="permissions[]"
                                 style="width: 100%;">
-
                             @if(sizeof($permissions) > 0)
                                 @foreach($permissions as $permission)
                                     <option value="{{$permission->id}}" @if($roleInfo != null && in_array($permission->id,$roleInfo->permissions->pluck('id')->toArray())) selected @endif>{{$permission->title}}</option>

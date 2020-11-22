@@ -12,7 +12,7 @@ class PermissionRepository implements PermissionRepositoryContract
         if($search_field) $query->where('title','like','%'.$search_field.'%');
         $query->orderBy('created_at','desc');
 
-        return $query->paginate(2);
+        return $query->paginate(10);
     }
 
     public function getPermissions()
