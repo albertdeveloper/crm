@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\Helper;
+use App\Http\Requests\LeadFormRequest;
+use App\Repositories\LeadRepositoryContract;
 use Illuminate\Http\Request;
 
 class LeadController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $leadRepository;
+
+    public function __construct(LeadRepositoryContract $leadRepositoryContract)
+    {
+        $this->leadRepository = $leadRepositoryContract;
+    }
+
     public function index()
     {
-        //
+        Helper::allowed_gate('leads_access');
+
+        return view('admin.leads.index');
     }
 
     /**
@@ -21,18 +28,20 @@ class LeadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function process_leads($id = false)
     {
-        //
+        return view('admin.leads.process', [
+            'leadInfo' => $this->leadRepository->findById($id),
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function process_leads_store(LeadFormRequest $request)
     {
         //
     }
@@ -40,7 +49,7 @@ class LeadController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,7 +60,7 @@ class LeadController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +71,8 @@ class LeadController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,7 +83,7 @@ class LeadController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

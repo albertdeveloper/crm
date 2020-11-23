@@ -51,7 +51,8 @@ Route::group([
 
 
     Route::get('/leads', [LeadController::class, 'index'])->name('leads.index');
-
+    Route::get('/process/leads', [LeadController::class, 'process_leads'])->name('leads.process');
+    Route::post('/process/leads', [LeadController::class, 'process_leads_store']);
 
 });
 
