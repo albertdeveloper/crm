@@ -39,14 +39,14 @@ class UserRepository implements UserRepositoryContract
 
     public function getAllUserForAdmin()
     {
-        return User::whereHas('roles',function($query){
-            return $query->where('title','User');
+        return User::whereHas('roles', function ($query) {
+            return $query->where('title', 'User');
         })->paginate();
     }
 
     public function save($request)
     {
-      $user =  User::updateOrCreate(
+        $user = User::updateOrCreate(
             ['id' => $request->id],
             [
                 'name' => $request->name,
@@ -54,6 +54,6 @@ class UserRepository implements UserRepositoryContract
                 'password' => $request->password,
             ]
         );
-      $user->roles()->sync($request->role);
+        $user->roles()->sync($request->role);
     }
 }

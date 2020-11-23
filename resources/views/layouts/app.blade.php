@@ -182,7 +182,7 @@
                     </li>
 
                     @can('user_management_access')
-                    <li class="nav-item has-treeview {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions','admin.userManagement.roles','admin.userManagement.users'])) ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ (in_array(Route::currentRouteName(),['admin.permissions.index','admin.roles.index','admin.users.index'])) ? 'menu-open' : '' }}">
                         <a href="#"
                            class="nav-link {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions','admin.userManagement.roles','admin.userManagement.users'])) ? 'active' : '' }}">
                             <i class="fas fa-users nav-icon"></i>
