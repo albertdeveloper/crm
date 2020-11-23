@@ -46,7 +46,6 @@ class UserRepository implements UserRepositoryContract
 
     public function save($request)
     {
-
       $user =  User::updateOrCreate(
             ['id' => $request->id],
             [
@@ -56,7 +55,5 @@ class UserRepository implements UserRepositoryContract
             ]
         );
       $user->roles()->sync($request->role);
-
     }
-
 }
