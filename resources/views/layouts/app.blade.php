@@ -11,23 +11,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
 
-
     <link rel="stylesheet" href="{{ asset('AdminLTE-3.0.5/plugins/select2/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('AdminLTE-3.0.5/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+          href="{{ asset('AdminLTE-3.0.5/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('AdminLTE-3.0.5/dist/css/adminlte.min.css') }}">
-    @stack('styles')
-    <!-- Scripts -->
+@stack('styles')
+<!-- Scripts -->
 {{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
-    <!-- Font Awesome Icons -->
+<!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('AdminLTE-3.0.5/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     @livewireStyles
     <style>
-        .pagination{
-            float:right!important;
-            margin-top:10px;
+        .pagination {
+            float: right !important;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -182,60 +182,70 @@
                     </li>
 
                     @can('user_management_access')
-                    <li class="nav-item has-treeview {{ (in_array(Route::currentRouteName(),['admin.permissions.index','admin.roles.index','admin.users.index'])) ? 'menu-open' : '' }}">
-                        <a href="#"
-                           class="nav-link {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions','admin.userManagement.roles','admin.userManagement.users'])) ? 'active' : '' }}">
-                            <i class="fas fa-users nav-icon"></i>
-                            <p>
-                                User Management
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.permissions.index') }}"
-                                   class="nav-link {{ (in_array(Route::currentRouteName(),['admin.permissions.index'])) ? 'active' : '' }}">
-                                    <i class="fas fa-user-lock nav-icon"></i>
-                                    <p>Permission</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.roles.index') }}" class="nav-link {{ (in_array(Route::currentRouteName(),['admin.roles.index'])) ? 'active' : '' }}">
-                                    <i class="fas fa-briefcase nav-icon"></i>
-                                    <p>Roles</p>
-                                </a>
-                            </li>
+                        <li class="nav-item has-treeview {{ (in_array(Route::currentRouteName(),['admin.permissions.index','admin.roles.index','admin.users.index'])) ? 'menu-open' : '' }}">
+                            <a href="#"
+                               class="nav-link {{ (in_array(Route::currentRouteName(),['admin.userManagement.permissions','admin.userManagement.roles','admin.userManagement.users'])) ? 'active' : '' }}">
+                                <i class="fas fa-users nav-icon"></i>
+                                <p>
+                                    User Management
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
 
-                            <li class="nav-item">
-                                <a href="{{ route('admin.users.index') }}" class="nav-link {{ (in_array(Route::currentRouteName(),['admin.users.index'])) ? 'active' : '' }} ">
-                                    <i class="fas fa-user nav-icon"></i>
-                                    <p>Users</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                                @can('permission_access')
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.permissions.index') }}"
+                                           class="nav-link {{ (in_array(Route::currentRouteName(),['admin.permissions.index'])) ? 'active' : '' }}">
+                                            <i class="fas fa-user-lock nav-icon"></i>
+                                            <p>Permission</p>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('roles_access')
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.roles.index') }}"
+                                           class="nav-link {{ (in_array(Route::currentRouteName(),['admin.roles.index'])) ? 'active' : '' }}">
+                                            <i class="fas fa-briefcase nav-icon"></i>
+                                            <p>Roles</p>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('users_access')
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.users.index') }}"
+                                           class="nav-link {{ (in_array(Route::currentRouteName(),['admin.users.index'])) ? 'active' : '' }} ">
+                                            <i class="fas fa-user nav-icon"></i>
+                                            <p>Users</p>
+                                        </a>
+                                    </li>
+                                @endcan
+                            </ul>
+                        </li>
+                    @endcan
+                    @can('organisation_access')
+                        <li class="nav-item">
+                            <a href="{{ route('admin.organisations.index') }}"
+                               class="nav-link {{ (Route::currentRouteName() == 'admin.organisations.index') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-globe "></i>
+                                <p>
+                                    Organisations
+                                </p>
+                            </a>
+                        </li>
                     @endcan
 
-                    <li class="nav-item">
-                        <a href="{{ route('admin.organisations.index') }}"
-                           class="nav-link {{ (Route::currentRouteName() == 'admin.organisations.index') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-globe "></i>
-                            <p>
-                                Organisations
-                            </p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="{{ route('admin.profile') }}"
-                           class="nav-link {{ (Route::currentRouteName() == 'admin.profile') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-user"></i>
-                            <p>
-                                My Profile
-                            </p>
-                        </a>
-                    </li>
-
+                    @can('profile_access')
+                        <li class="nav-item">
+                            <a href="{{ route('admin.profile') }}"
+                               class="nav-link {{ (Route::currentRouteName() == 'admin.profile') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    My Profile
+                                </p>
+                            </a>
+                        </li>
+                    @endcan
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -260,12 +270,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-{{--                        <h1 class="m-0 text-dark">Starter Page</h1>--}}
+                        {{--                        <h1 class="m-0 text-dark">Starter Page</h1>--}}
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-{{--                            <li class="breadcrumb-item"><a href="#">Home</a></li>--}}
-{{--                            <li class="breadcrumb-item active">Starter Page</li>--}}
+                            {{--                            <li class="breadcrumb-item"><a href="#">Home</a></li>--}}
+                            {{--                            <li class="breadcrumb-item active">Starter Page</li>--}}
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
