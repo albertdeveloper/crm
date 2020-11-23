@@ -30,6 +30,7 @@ class LeadController extends Controller
      */
     public function process_leads($id = false)
     {
+        Helper::allowed_gate('leads_process');
         return view('admin.leads.process', [
             'leadInfo' => $this->leadRepository->findById($id),
         ]);
@@ -43,6 +44,7 @@ class LeadController extends Controller
      */
     public function process_leads_store(LeadFormRequest $request)
     {
+        Helper::allowed_gate('leads_process');
         $this->leadRepository->process($request);
         return redirect()->route('admin.leads.index');
     }
@@ -58,37 +60,5 @@ class LeadController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $this->leadRepository->destroy($id);
-    }
 }
