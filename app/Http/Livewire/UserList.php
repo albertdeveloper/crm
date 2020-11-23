@@ -39,14 +39,9 @@ class UserList extends Component
 
     public function delete()
     {
-        self::allowed_gate('users_destroy');
-        $this->userRepository->delete($this->actionId);
+        return redirect()->route('admin.users.destroy',['id'=>$this->actionId]);
     }
 
-    public static function allowed_gate($ability)
-    {
-        abort_unless(Gate::allows($ability),403);
-    }
 
     public function render()
     {

@@ -47,6 +47,8 @@ Route::group([
     Route::get('/users',[UserController::class, 'index'])->name('users.index');
     Route::get('/process/user/{id?}',[UserController::class,'process_user'])->name('users.process');
     Route::post('/process/user/{id?}',[UserController::class,'process_user_store']);
+    Route::get('/delete/user/{id}',[UserController::class, 'destroy'])->name('users.destroy');
+
 
 });
 

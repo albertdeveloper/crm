@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RoleFormRequest;
 use App\Repositories\PermissionRepositoryContract;
 use App\Repositories\RoleRepositoryContract;
-use Illuminate\Support\Facades\Gate;
+use App\Helper\Helper;
+
 
 class RoleController extends Controller
 {
@@ -21,14 +22,14 @@ class RoleController extends Controller
 
     public function index()
     {
-        self::allowed_gate('roles_access');
+        Helper::allowed_gate('roles_access');
 
         return view('admin.management.user.roles.index');
     }
 
     public function process_roles($id = false)
     {
-        self::allowed_gate('permission_process');
+        Helper::allowed_gate('permission_process');
 
         return view('admin.management.user.roles.process', [
             'permissions' => $this->permissionRepository->getPermissions(),
@@ -38,16 +39,9 @@ class RoleController extends Controller
 
     public function process_roles_store(RoleFormRequest $request)
     {
-        self::allowed_gate('roles_process');
+        Helper::allowed_gate('roles_process');
 
         $this->roleRepository->save($request);
         return redirect()->route('admin.roles.index');
     }
-
-    public static function allowed_gate($ability)
-    {
-        abort_unless(Gate::allows($ability),403);
-    }
-
-
 }
