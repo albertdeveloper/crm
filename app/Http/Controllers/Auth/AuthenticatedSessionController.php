@@ -32,6 +32,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if(auth()->user()->roles()->pluck('title')[0] == 'Administrator') {
+          return redirect(RouteServiceProvider::ADMIN_HOME);
+        }
+
         return redirect(RouteServiceProvider::HOME);
     }
 

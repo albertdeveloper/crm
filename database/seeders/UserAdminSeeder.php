@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 
 class UserAdminSeeder extends Seeder
 {
@@ -20,7 +19,7 @@ class UserAdminSeeder extends Seeder
         $user->id = 1;
         $user->name = 'Ross Albert M. Gonzales';
         $user->email = 'rossalbertgonzales@gmail.com';
-        $user->password = Hash::make('password');
+        $user->password =  'password';
         $user->save();
 
         //administrator role

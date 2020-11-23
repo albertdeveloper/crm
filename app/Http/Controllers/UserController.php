@@ -31,7 +31,7 @@ class UserController extends Controller
 
     public function profile()
     {
-        Helper::allowed_gate('profile_process');
+        Helper::allowed_gate('profile_access');
         return view('profile', [
             'user' => $this->userRepository->findProfileInfo(),
         ]);

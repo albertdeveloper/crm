@@ -250,8 +250,15 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-chevron-left"></i>
-                            <p>
-                                Logout
+                <p>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a   href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                            </form>
                             </p>
                         </a>
                     </li>
