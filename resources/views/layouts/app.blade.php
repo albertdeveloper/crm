@@ -223,15 +223,28 @@
                             </ul>
                         </li>
                     @endcan
-                    @can('organisation_access')
-                        <li class="nav-item">
-                            <a href="{{ route('admin.organisations.index') }}"
-                               class="nav-link {{ (Route::currentRouteName() == 'admin.organisations.index') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-globe "></i>
+                    @can('leads_access')
+                        <li class="nav-item has-treeview {{ (in_array(Route::currentRouteName(),['admin.leads.index'])) ? 'menu-open' : '' }}">
+                            <a href="#"
+                               class="nav-link {{ (in_array(Route::currentRouteName(),['admin.leads.index'])) ? 'active' : '' }}">
+                                <i class="fas fa-users nav-icon"></i>
                                 <p>
-                                    Organisations
+                                    Leads
+                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.leads.index') }}"
+                                           class="nav-link {{ (in_array(Route::currentRouteName(),['admin.leads.index'])) ? 'active' : '' }}">
+                                            <i class="fas fa-users nav-icon"></i>
+                                            <p>Manage Leads</p>
+                                        </a>
+                                    </li>
+
+
+                            </ul>
                         </li>
                     @endcan
 

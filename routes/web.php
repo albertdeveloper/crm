@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\OrganisationController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +30,6 @@ Route::group([
 ], function () {
 
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
-    Route::get('/organisations', [OrganisationController::class, 'index'])->name('organisations.index');
     Route::get('/users', [UserController::class, 'users'])->name('users');
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     Route::post('/profile', [UserController::class, 'profile_store']);
@@ -48,6 +47,10 @@ Route::group([
     Route::get('/process/user/{id?}',[UserController::class,'process_user'])->name('users.process');
     Route::post('/process/user/{id?}',[UserController::class,'process_user_store']);
     Route::get('/delete/user/{id}',[UserController::class, 'destroy'])->name('users.destroy');
+
+
+
+    Route::get('/leads', [LeadController::class, 'index'])->name('leads.index');
 
 
 });

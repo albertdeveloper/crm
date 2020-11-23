@@ -2,19 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\LeadRepositoryContract;
 use Illuminate\Http\Request;
 
-class OrganisationController extends Controller
+class LeadController extends Controller
 {
-    private $orgRepository;
-
-    public function __construct(LeadRepositoryContract $organisationRepositoryContract)
-    {
-        $this->orgRepository = $organisationRepositoryContract;
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +13,7 @@ class OrganisationController extends Controller
      */
     public function index()
     {
-        return view('admin.organisation.index',[
-            'organisations' => $this->orgRepository->getAll(),
-        ]);
+        //
     }
 
     /**

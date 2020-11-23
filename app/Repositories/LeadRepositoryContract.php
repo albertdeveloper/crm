@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-interface OrganisationRepositoryContract
+interface LeadRepositoryContract
 {
     public function getAll();
 }

@@ -3,7 +3,7 @@ namespace App\Repositories;
 
 use App\Models\Organisation;
 
-class OrganisationRepository implements OrganisationRepositoryContract
+class LeadRepository implements LeadRepositoryContract
 {
     public function getAll()
     {

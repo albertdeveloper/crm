@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Repositories\OrganisationRepository;
-use App\Repositories\OrganisationRepositoryContract;
+use App\Repositories\LeadRepository;
+use App\Repositories\LeadRepositoryContract;
 use App\Repositories\PermissionRepository;
 use App\Repositories\PermissionRepositoryContract;
 use App\Repositories\RoleRepository;
@@ -34,6 +34,6 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->app->bind(UserRepositoryContract::class,UserRepository::class);
         $this->app->bind(PermissionRepositoryContract::class,PermissionRepository::class);
         $this->app->bind(RoleRepositoryContract::class,RoleRepository::class);
-        $this->app->bind(OrganisationRepositoryContract::class,OrganisationRepository::class);
+        $this->app->bind(LeadRepositoryContract::class,LeadRepository::class);
     }
 }
