@@ -227,16 +227,6 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href=" "
-                           class="nav-link {{ (Route::currentRouteName() == 'admin.users') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-users "></i>
-                            <p>
-                                Users
-                            </p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
                         <a href="{{ route('admin.profile') }}"
                            class="nav-link {{ (Route::currentRouteName() == 'admin.profile') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-user"></i>

@@ -7,6 +7,16 @@ use App\Models\Role;
 
 class RoleRepository implements RoleRepositoryContract
 {
+    public function getRoleViaLivewire($search_field)
+    {
+        $query =  Role::query();
+        if($search_field) $query->where('title','like','%'.$search_field.'%');
+        $query->orderBy('title','asc');
+
+        return $query->paginate(10);
+    }
+
+
     public function getRoles()
     {
         return Role::paginate(10);

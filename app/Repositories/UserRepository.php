@@ -8,13 +8,17 @@ use App\Models\User;
 
 class UserRepository implements UserRepositoryContract
 {
-    public function findById($id = false)
+    public function findById($id)
     {
-        // if id not passed get current logged id
-        $id = ($id) ? $id : auth()->user()->id;
-
+        if(!$id) return;
         return User::findOrFail($id);
     }
+
+    public function findProfileInfo()
+    {
+        return User::findOrFail(auth()->user()->id);
+    }
+
 
     public function save_profile($request)
     {

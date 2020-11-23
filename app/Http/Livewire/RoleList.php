@@ -13,6 +13,7 @@ class RoleList extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     private $roleRepository;
+    public $search;
     public $actionId = array();
 
     public function __construct()
@@ -48,7 +49,7 @@ class RoleList extends Component
     public function render()
     {
         return view('livewire.role-list', [
-                'roles' => $this->roleRepository->getRoles(),
+                'roles' => $this->roleRepository->getRoleViaLivewire($this->search),
             ]
         );
     }
