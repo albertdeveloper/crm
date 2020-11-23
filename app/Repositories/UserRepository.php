@@ -60,4 +60,10 @@ class UserRepository implements UserRepositoryContract
         );
         $user->roles()->sync($request->role);
     }
+
+    public function destroy($ids)
+    {
+        if(sizeof($ids) == 0) return;
+        User::whereIn('id',$ids)->delete();
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Helper\Helper;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
@@ -39,7 +40,8 @@ class UserList extends Component
 
     public function delete()
     {
-        return redirect()->route('admin.users.destroy',['id'=>$this->actionId]);
+        Helper::allowed_gate('users_destroy');
+       $this->userRepository->destroy($this->actionId);
     }
 
 

@@ -43,7 +43,8 @@ class LeadController extends Controller
      */
     public function process_leads_store(LeadFormRequest $request)
     {
-        //
+        $this->leadRepository->process($request);
+        return redirect()->route('admin.leads.index');
     }
 
     /**
@@ -88,6 +89,6 @@ class LeadController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->leadRepository->destroy($id);
     }
 }

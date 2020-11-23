@@ -39,8 +39,21 @@
                                 <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                     aria-sort="ascending"
                                     aria-label="Rendering engine: activate to sort column descending">
-                                    <span class="ml-4">Title</span>
+                                    <span class="ml-4">Company</span>
                                 </th>
+
+                                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                    aria-sort="ascending"
+                                    aria-label="Rendering engine: activate to sort column descending">
+                                    <span class="ml-4">Email-Address</span>
+                                </th>
+
+                                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                    aria-sort="ascending"
+                                    aria-label="Rendering engine: activate to sort column descending">
+                                    <span class="ml-4">Phone</span>
+                                </th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -50,8 +63,18 @@
                                     <td tabindex="0" class="sorting_1">
                                         <input type="checkbox" class="mt-1" name="permission[]"
                                                wire:click.lazy="setForAction({{$lead->id}})"/> <span
-                                            class="ml-2">{{$lead->title}}</span>
+                                            class="ml-2">{{$lead->company}}</span>
                                     </td>
+
+                                    <td tabindex="0" class="sorting_1">
+                                     <span class="ml-2">{{$lead->email}}</span>
+                                    </td>
+
+                                    <td tabindex="0" class="sorting_1">
+                                        <span class="ml-2">{{$lead->phone}}</span>
+                                    </td>
+
+
 
                                 </tr>
                             @endforeach

@@ -15,7 +15,7 @@ class CreateLeadsTable extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->comment('aka company name');
+            $table->string('company');
             $table->string('phone',50);
             $table->string('email')->unique();
             $table->string('street',100);

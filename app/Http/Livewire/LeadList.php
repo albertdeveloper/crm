@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Helper\Helper;
 use App\Repositories\LeadRepository;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -33,19 +34,20 @@ class LeadList extends Component
 
     public function update()
     {
-        return redirect()->route('admin.users.process',['id'=>$this->actionId[0]]);
+        return redirect()->route('admin.leads.process',['id'=>$this->actionId[0]]);
     }
 
     public function delete()
     {
-        return redirect()->route('admin.users.destroy',['id'=>$this->actionId]);
+        Helper::allowed_gate('leads_destroy');
+        $this->leadRepository->destroy($this->actionId);
     }
 
 
     public function render()
     {
         return view('livewire.lead-list',[
-            'leads' => $this->leadRepository->getAll(),
+            'leads' => $this->leadRepository->getAllViaLivewire(),
         ]);
     }
 }

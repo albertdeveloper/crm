@@ -5,9 +5,9 @@ use App\Models\Lead;
 
 class LeadRepository implements LeadRepositoryContract
 {
-    public function getAll()
+    public function getAllViaLivewire()
     {
-        return Lead::get();
+        return Lead::paginate();
     }
 
     public function findById($id = false)
@@ -15,4 +15,28 @@ class LeadRepository implements LeadRepositoryContract
         if(!$id) return;
         return Lead::findOrFail($id);
     }
+
+    public function process($request)
+    {
+       $processed_lead =  Lead::updateOrCreate(
+            ['id' => $request->id],
+            [
+                'company' => $request->company,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'street' => $request->street,
+                'city' => $request->city,
+                'state' => $request->state,
+                'zipcode' => $request->zipcode,
+                'website' => $request->website,
+                'country' => $request->country
+            ]);
+    }
+
+    public function destroy($ids)
+    {
+        if(sizeof($ids) == 0) return;
+        Lead::whereIn('id',$ids)->delete();
+    }
+
 }
