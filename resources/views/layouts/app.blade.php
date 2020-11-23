@@ -238,7 +238,7 @@
                                     <li class="nav-item">
                                         <a href="{{ route('admin.leads.index') }}"
                                            class="nav-link {{ (in_array(Route::currentRouteName(),['admin.leads.index'])) ? 'active' : '' }}">
-                                            <i class="fas fa-users nav-icon"></i>
+                                            <i class="fas fa-globe nav-icon"></i>
                                             <p>Manage Leads</p>
                                         </a>
                                     </li>
