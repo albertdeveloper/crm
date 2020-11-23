@@ -33,7 +33,7 @@ class RoleController extends Controller
 
         return view('admin.management.user.roles.process', [
             'permissions' => $this->permissionRepository->getPermissions(),
-            'roleInfo' => $this->roleRepository->findViaId($id),
+            'roleInfo' => $this->roleRepository->findById($id),
         ]);
     }
 

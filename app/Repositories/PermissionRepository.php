@@ -21,7 +21,7 @@ class PermissionRepository implements PermissionRepositoryContract
     }
 
 
-    public function findViaId($id)
+    public function findById($id)
     {
         if(!$id) return ;
         return Permission::findOrFail($id);

@@ -29,10 +29,8 @@ class UserController extends Controller
         return view('admin.organisations.index');
     }
 
-
     public function profile()
     {
-
         Helper::allowed_gate('profile_process');
         return view('admin.profile', [
             'user' => $this->userRepository->findUserById(false),
@@ -56,7 +54,7 @@ class UserController extends Controller
     {
         Helper::allowed_gate('users_process');
         return view('admin.management.user.users.process', [
-            'userInfo' => $this->userRepository->findViaId($id),
+            'userInfo' => $this->userRepository->findById($id),
             'roles' => $this->roleRepository->getRoles(),
         ]);
     }

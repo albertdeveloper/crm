@@ -7,5 +7,5 @@ interface PermissionRepositoryContract
     public function save($request);
     public function delete($ids);
     public function getPermissionViaLivewire($request);
-    public function findViaId($id);
+    public function findById($id);
 }

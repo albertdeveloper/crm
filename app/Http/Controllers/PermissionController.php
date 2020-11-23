@@ -30,7 +30,7 @@ class PermissionController extends Controller
         Helper::allowed_gate('permission_process');
 
         return view('admin.management.user.permissions.process', [
-            'permissionInfo' => $this->permissionRepository->findViaId($id),
+            'permissionInfo' => $this->permissionRepository->findById($id),
         ]);
     }
 
