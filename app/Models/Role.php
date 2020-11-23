@@ -12,7 +12,7 @@ class Role extends Model
 
     public function permissions()
     {
-        return $this->belongsToMany('App\Models\Permission');
+        return $this->belongsToMany('App\Models\Permission')->withTimestamps();
     }
 
 }

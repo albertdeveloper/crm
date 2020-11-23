@@ -30,7 +30,7 @@ Route::group([
 ], function () {
 
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
-    Route::get('/organisations', [OrganisationController::class, 'index'])->name('organisations');
+    Route::get('/organisations', [OrganisationController::class, 'index'])->name('organisations.index');
     Route::get('/users', [UserController::class, 'users'])->name('users');
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     Route::post('/profile', [UserController::class, 'profile_store']);

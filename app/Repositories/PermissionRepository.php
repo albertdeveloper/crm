@@ -10,7 +10,7 @@ class PermissionRepository implements PermissionRepositoryContract
     {
         $query =  Permission::query();
         if($search_field) $query->where('title','like','%'.$search_field.'%');
-        $query->orderBy('created_at','desc');
+        $query->orderBy('title','asc');
 
         return $query->paginate(10);
     }

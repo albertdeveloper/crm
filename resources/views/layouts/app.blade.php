@@ -217,8 +217,8 @@
                     @endcan
 
                     <li class="nav-item">
-                        <a href="{{ route('admin.organisations') }}"
-                           class="nav-link {{ (Route::currentRouteName() == 'admin.organisations') ? 'active' : '' }}">
+                        <a href="{{ route('admin.organisations.index') }}"
+                           class="nav-link {{ (Route::currentRouteName() == 'admin.organisations.index') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-globe "></i>
                             <p>
                                 Organisations
