@@ -50,7 +50,7 @@ class UserController extends Controller
         return view('admin.management.user.users.index');
     }
 
-    public function process_user($id = false)
+    public function process($id = false)
     {
         Helper::allowed_gate('users_process');
         return view('admin.management.user.users.process', [
@@ -59,7 +59,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function process_user_store(UserFormRequest $request)
+    public function store(UserFormRequest $request)
     {
         Helper::allowed_gate('users_process');
 

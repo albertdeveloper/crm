@@ -25,7 +25,7 @@ class PermissionController extends Controller
         ]);
     }
 
-    public function process_permission($id = false)
+    public function process($id = false)
     {
         Helper::allowed_gate('permission_process');
 
@@ -34,7 +34,7 @@ class PermissionController extends Controller
         ]);
     }
 
-    public function process_permission_store(PermissionFormRequest $request)
+    public function store(PermissionFormRequest $request)
     {
         Helper::allowed_gate('permission_process');
         $this->permissionRepository->save($request);

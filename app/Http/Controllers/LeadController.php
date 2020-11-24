@@ -28,7 +28,7 @@ class LeadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function process_leads($id = false)
+    public function process($id = false)
     {
         Helper::allowed_gate('leads_process');
         return view('admin.leads.process', [

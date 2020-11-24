@@ -1,24 +1,17 @@
 <div>
-    <a href="{{ route('admin.leads.process') }}" class="btn btn-primary">Add New Lead</a>
+    <a href="{{ route('admin.leads.contact.process') }}" class="btn btn-primary">Add New Contact</a>
     <div class="mt-3">
         <div class="card">
             <div class="card-header">
-                <h5 class="m-0">Leads List</h5>
+                <h5 class="m-0">Contacts List</h5>
             </div>
 
             <div class="card-body">
                 <div class="float-right">
                     <input type="text" class="form-control" wire:model="search"/>
                 </div>
-                @if(sizeOf($leads) > 0)
+                @if(sizeOf($contacts) > 0)
                     <div class="float-left">
-
-                        @can('leads_add_contact')
-                            <button class="btn btn-xs btn-success mr-1"  {{ ($actionId && sizeof($actionId) == 1)  ? '' : 'disabled'}}  wire:click="contacts()" ><i
-                                    class="fas fa-users"></i>
-                                Contacts
-                            </button>
-                        @endcan
 
 
                         <button class="btn btn-xs btn-primary mr-1"
@@ -81,7 +74,7 @@
                                     </td>
 
                                     <td tabindex="0" class="sorting_1">
-                                     <span class="ml-2">{{$lead->email}}</span>
+                                        <span class="ml-2">{{$lead->email}}</span>
                                     </td>
 
                                     <td tabindex="0" class="sorting_1">
@@ -94,11 +87,11 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{$leads->links()}}
+                        {{$contacts->links()}}
                     </div>
                 @else
                     <div class="alert alert-danger">
-                        No Leads found
+                        No contacts found
                     </div>
                 @endif
             </div>

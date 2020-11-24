@@ -27,7 +27,7 @@ class RoleController extends Controller
         return view('admin.management.user.roles.index');
     }
 
-    public function process_roles($id = false)
+    public function process($id = false)
     {
         Helper::allowed_gate('permission_process');
 
@@ -37,7 +37,7 @@ class RoleController extends Controller
         ]);
     }
 
-    public function process_roles_store(RoleFormRequest $request)
+    public function store(RoleFormRequest $request)
     {
         Helper::allowed_gate('roles_process');
 
