@@ -52,8 +52,11 @@ Route::group([
 
     Route::get('/leads', [LeadController::class, 'index'])->name('leads.index');
     Route::get('/leads/contacts',[ContactController::class, 'index'])->name('leads.contact');
+
     Route::get('/process/contact/{id?}', [ContactController::class, 'process'])->name('leads.contact.process');
-    Route::post('/process/leads/{id?}', [ContactController::class, 'process'])->name('leads.contact.process');
+    Route::post('/process/contact/{id?}', [ContactController::class, 'store']);
+
+    Route::get('/process/leads/{id?}', [LeadController::class, 'process'])->name('leads.process');
     Route::post('/process/leads/{id?}', [LeadController::class, 'process_leads_store']);
 
 });
