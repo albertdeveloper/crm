@@ -14,7 +14,6 @@ class LeadList extends Component
     protected $paginationTheme = 'bootstrap';
     private $leadRepository;
     public $search;
-
     public $actionId = array();
 
 
@@ -45,7 +44,7 @@ class LeadList extends Component
 
     public function contacts()
     {
-        return redirect()->route('admin.leads.contact');
+        return redirect()->route('admin.leads.contact',['lead_id' => $this->actionId[0]]);
     }
 
 

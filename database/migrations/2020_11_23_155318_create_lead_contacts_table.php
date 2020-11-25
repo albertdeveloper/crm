@@ -15,11 +15,13 @@ class CreateLeadContactsTable extends Migration
     {
         Schema::create('lead_contacts', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('lead_id');
             $table->string('name');
             $table->string('phone');
             $table->string('email');
             $table->string('designation');
+            $table->tinyInteger('is_primary')->default(0);
             $table->timestamps();
             $table->foreign('lead_id')->references('id')->on('leads')->onDelete('cascade');
         });

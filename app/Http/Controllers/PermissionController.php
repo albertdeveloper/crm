@@ -20,9 +20,7 @@ class PermissionController extends Controller
     {
         Helper::allowed_gate('permission_access');
 
-        return view('admin.management.user.permissions.index', [
-            'permissions' => $this->permissionRepository->getPermissions(),
-        ]);
+        return view('admin.management.user.permissions.index');
     }
 
     public function process($id = false)

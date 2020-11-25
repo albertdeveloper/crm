@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lead extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'company',
         'phone',
@@ -18,5 +19,9 @@ class Lead extends Model
         'zipcode',
         'website',
         'country',
+    ];
+
+    public $casts = [
+        'id' => 'integer'
     ];
 }
