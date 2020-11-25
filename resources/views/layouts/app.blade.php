@@ -241,7 +241,7 @@
                                         <a href="{{ route('admin.leads.index') }}"
                                            class="nav-link {{ (in_array(Route::currentRouteName(),['admin.leads.index'])) ? 'active' : '' }}">
                                             <i class="fas fa-globe nav-icon"></i>
-                                            <p>Manage Leads</p>
+                                            <p>List</p>
                                         </a>
                                     </li>
 
@@ -306,7 +306,7 @@
         <!-- /.content-header -->
 
         <!-- Main content -->
-        <div class="content ">
+        <div class="content px-3 py-3">
                 {{ $slot }}
         </div>
         <!-- /.content -->

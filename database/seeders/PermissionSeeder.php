@@ -30,6 +30,7 @@ class PermissionSeeder extends Seeder
             12 => 'leads_access',
             13 => 'leads_process',
             14 => 'leads_destroy',
+            15 => 'leads_show',
         );
 
 

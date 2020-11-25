@@ -14,7 +14,9 @@
                     <div class="float-left">
 
                         @can('leads_add_contact')
-                            <button class="btn btn-xs btn-success mr-1"  {{ ($actionId && sizeof($actionId) == 1)  ? '' : 'disabled'}}  wire:click="contacts()" ><i
+                            <button class="btn btn-xs btn-success mr-1"
+                                    {{ ($actionId && sizeof($actionId) == 1)  ? '' : 'disabled'}}  wire:click="contacts()">
+                                <i
                                     class="fas fa-users"></i>
                                 Contacts
                             </button>
@@ -26,13 +28,15 @@
                                 class="fas fa-eye"></i> View
                         </button>
                         @can('leads_process')
-                            <button class="btn btn-xs btn-info mr-1" {{($actionId && sizeof($actionId) == 1) ? '' : 'disabled'}}   wire:click="update()">
+                            <button class="btn btn-xs btn-info mr-1"
+                                    {{($actionId && sizeof($actionId) == 1) ? '' : 'disabled'}}   wire:click="update()">
                                 <i
                                     class="fas fa-pencil-alt"></i> Update
                             </button>
                         @endcan
                         @can('leads_destroy')
-                            <button class="btn btn-xs btn-danger" {{$actionId ? ' ' : 'disabled'}}  wire:click="delete()" ><i
+                            <button class="btn btn-xs btn-danger"
+                                    {{$actionId ? ' ' : 'disabled'}}  wire:click="delete()"><i
                                     class="fas fa-trash"></i>
                                 Delete
                             </button>
@@ -63,11 +67,7 @@
                                     <span class="ml-4">Phone</span>
                                 </th>
 
-                                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                    aria-sort="ascending"
-                                    aria-label="Rendering engine: activate to sort column descending">
-                                    <span class="ml-4">Primary Contact</span>
-                                </th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -81,15 +81,13 @@
                                     </td>
 
                                     <td tabindex="0" class="sorting_1">
-                                     <span class="ml-2">{{$lead->email}}</span>
+                                        <span class="ml-2">{{$lead->email}}</span>
                                     </td>
 
                                     <td tabindex="0" class="sorting_1">
                                         <span class="ml-2">{{$lead->phone}}</span>
                                     </td>
-                                    <td tabindex="0" class="sorting_1">
-                                        <span class="ml-2"></span>
-                                    </td>
+
                                 </tr>
                             @endforeach
                             </tbody>

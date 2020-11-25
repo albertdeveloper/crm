@@ -26,6 +26,11 @@ class Lead extends Model
         'no_employees',
         'annual_revenue' ,
         'rating',
+        'street',
+        'city',
+        'state',
+        'zipcode',
+        'country',
     ];
 
     public $casts = [

@@ -20,7 +20,7 @@ class LeadRepository implements LeadRepositoryContract
 
     public function process($request)
     {
-       return Lead::updateOrCreate(
+        return Lead::updateOrCreate(
             ['id' => $request->id],
             [
                 'owner' => $request->owner,
@@ -39,6 +39,12 @@ class LeadRepository implements LeadRepositoryContract
                 'no_employees' => $request->no_employees,
                 'annual_revenue' => $request->annual_revenue,
                 'rating' => $request->rating,
+
+                'street' => $request->street,
+                'city' => $request->city,
+                'state' => $request->state,
+                'zipcode' => $request->zipcode,
+                'country' => $request->country
             ]);
     }
 

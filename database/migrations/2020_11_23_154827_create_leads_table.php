@@ -31,11 +31,19 @@ class CreateLeadsTable extends Migration
             $table->integer('no_employees')->nullable();
             $table->decimal('annual_revenue',8,2)->nullable();
             $table->integer('rating')->nullable();
+
+            $table->string('street',100)->nullable();
+            $table->string('city',100)->nullable();
+            $table->string('state',100)->nullable();
+            $table->string('zipcode',50)->nullable();
+            $table->string('country',100)->nullable();
+
             $table->timestamps();
 
             $table->foreign('lead_source_id')->references('id')->on('lead_sources')->onDelete('cascade');
 
             $table->index(['owner','company','email']);
+            $table->index(['city','state','country']);
         });
     }
 
