@@ -243,7 +243,7 @@
                                         </a>
                                     </li>
 
- s
+
                             </ul>
                         </li>
                     @endcan

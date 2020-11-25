@@ -23,7 +23,7 @@ class LeadController extends Controller
         return view('admin.leads.index');
     }
 
-    /**
+    /**w
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
