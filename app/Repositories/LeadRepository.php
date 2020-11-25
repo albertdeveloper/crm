@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use App\Models\Lead;
@@ -13,31 +14,38 @@ class LeadRepository implements LeadRepositoryContract
 
     public function findById($id = false)
     {
-        if(!$id) return;
+        if (!$id) return;
         return Lead::findOrFail($id);
     }
 
     public function process($request)
     {
-       $processed_lead =  Lead::updateOrCreate(
+        $processed_lead = Lead::updateOrCreate(
             ['id' => $request->id],
             [
+                'owner' => $request->owner,
                 'company' => $request->company,
-                'phone' => $request->phone,
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'title' => $request->title,
                 'email' => $request->email,
-                'street' => $request->street,
-                'city' => $request->city,
-                'state' => $request->state,
-                'zipcode' => $request->zipcode,
+                'phone' => $request->phone,
+                'fax' => $request->fax,
+                'mobile' => $request->mobile,
                 'website' => $request->website,
-                'country' => $request->country
+                'lead_source_id' => $request->lead_source,
+                'lead_status' => $request->lead_status,
+                'industry' => $request->industry,
+                'no_employees' => $request->no_employees,
+                'annual_revenue' => $request->annual_revenue,
+                'rating' => $request->rating,
             ]);
     }
 
     public function destroy($ids)
     {
-        if(sizeof($ids) == 0) return;
-        Lead::whereIn('id',$ids)->delete();
+        if (sizeof($ids) == 0) return;
+        Lead::whereIn('id', $ids)->delete();
     }
 
     public function getLeadSources()
@@ -45,6 +53,4 @@ class LeadRepository implements LeadRepositoryContract
         return LeadSource::get();
 
     }
-
-
 }

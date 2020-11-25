@@ -88,7 +88,7 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="title">Lead Source</label>
-                        <select class="form-control">
+                        <select class="form-control" name="lead_source">
                             <option></option>
                             @foreach($leadSources as $source)
                                 <option value="{{$source->id}}">{{$source->source}}</option>
@@ -132,7 +132,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="title">Rating</label>
-                        <x-input type="text" name="rating" id="rating" class="form-control"
+                        <x-input type="number" name="rating" id="rating" class="form-control"
                                  value="{!! ($leadInfo) ? $leadInfo->rating : old('rating') !!}"/>
                     </div>
                 </div>

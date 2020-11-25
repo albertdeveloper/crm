@@ -10,15 +10,22 @@ class Lead extends Model
     use HasFactory;
 
     protected $fillable = [
+        'owner',
         'company',
-        'phone',
+        'first_name',
+        'last_name',
+        'title',
         'email',
-        'street',
-        'city',
-        'state',
-        'zipcode',
+        'phone',
+        'fax',
+        'mobile',
         'website',
-        'country',
+        'lead_source_id' ,
+        'lead_status',
+        'industry',
+        'no_employees',
+        'annual_revenue' ,
+        'rating',
     ];
 
     public $casts = [

@@ -24,16 +24,18 @@ class CreateLeadsTable extends Migration
             $table->string('phone',20)->nullable();
             $table->string('fax',20)->nullable();
             $table->string('mobile',20)->nullable();
-            $table->string('website',20)->nullable();
+            $table->string('website',100)->nullable();
             $table->unsignedBigInteger('lead_source_id')->nullable();
             $table->string('lead_status',30)->nullable();
             $table->string('industry',100)->nullable();
             $table->integer('no_employees')->nullable();
             $table->decimal('annual_revenue',8,2)->nullable();
-            $table->string('rating',10)->nullable();
+            $table->integer('rating')->nullable();
             $table->timestamps();
 
             $table->foreign('lead_source_id')->references('id')->on('lead_sources')->onDelete('cascade');
+
+            $table->index(['owner','company','email']);
         });
     }
 
