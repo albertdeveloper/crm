@@ -20,7 +20,7 @@ class LeadRepository implements LeadRepositoryContract
 
     public function process($request)
     {
-        $processed_lead = Lead::updateOrCreate(
+       return Lead::updateOrCreate(
             ['id' => $request->id],
             [
                 'owner' => $request->owner,

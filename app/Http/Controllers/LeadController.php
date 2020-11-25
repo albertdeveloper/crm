@@ -46,8 +46,8 @@ class LeadController extends Controller
     public function store(LeadFormRequest $request)
     {
         Helper::allowed_gate('leads_process');
-        $this->leadRepository->process($request);
-        return redirect()->route('admin.leads.index');
+        $leads = $this->leadRepository->process($request);
+        return redirect()->route('admin.leads.show',['id' => $leads->id]);
     }
 
     /**
@@ -58,7 +58,11 @@ class LeadController extends Controller
      */
     public function show($id)
     {
-        //
+        Helper::allowed_gate('leads_show');
+
+        return view('admin.leads.show',[
+            'lead_data' => $this->leadRepository->findById($id),
+        ]);
     }
 
 

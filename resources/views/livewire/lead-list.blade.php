@@ -22,7 +22,7 @@
 
 
                         <button class="btn btn-xs btn-primary mr-1"
-                                {{ ($actionId && sizeof($actionId) == 1)  ? '' : 'disabled'}}  wire:click="view()"><i
+                                {{ ($actionId && sizeof($actionId) == 1)  ? '' : 'disabled'}}  wire:click="show()"><i
                                 class="fas fa-eye"></i> View
                         </button>
                         @can('leads_process')

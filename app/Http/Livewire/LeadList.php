@@ -36,6 +36,11 @@ class LeadList extends Component
         return redirect()->route('admin.leads.process',['id'=>$this->actionId[0]]);
     }
 
+    public function show()
+    {
+        return redirect()->route('admin.leads.show',['id'=>$this->actionId[0]]);
+    }
+
     public function delete()
     {
         Helper::allowed_gate('leads_destroy');
