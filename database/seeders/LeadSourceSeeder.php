@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\LeadSource;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class LeadSourceSeeder extends Seeder
 {

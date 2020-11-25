@@ -1,12 +1,12 @@
 <x-app-layout>
     <div class="card card-default">
-        <div class="card-header">
-            <h3 class="card-title">{{($leadInfo) ? 'Update' : 'Create'}} Lead</h3>
+        <div class="card-header py-3 px-4">
+            <h4>Lead Information </h4>
         </div>
 
         <form method="POST">
             @csrf
-            <div class="card-body">
+            <div class="card-body py-3 px-4">
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="title">Lead Owner</label>
@@ -91,7 +91,7 @@
                         <select class="form-control" name="lead_source">
                             <option></option>
                             @foreach($leadSources as $source)
-                                <option value="{{$source->id}}">{{$source->source}}</option>
+                                <option value="{{$source->id}}" @if($leadInfo->lead_source_id ?? old('lead_source') == $source->id) selected="true" @endif >{{$source->title}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -140,7 +140,7 @@
 
             </div>
 
-            <div class="card-footer">
+            <div class="card-footer  py-3 px-4">
                 <button type="submit" class="btn btn-primary">{{($leadInfo) ? 'Update' : 'Create'}} lead</button>
             </div>
         </form>

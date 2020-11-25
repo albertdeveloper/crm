@@ -43,7 +43,7 @@ class LeadController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function process_leads_store(LeadFormRequest $request)
+    public function store(LeadFormRequest $request)
     {
         Helper::allowed_gate('leads_process');
         $this->leadRepository->process($request);
