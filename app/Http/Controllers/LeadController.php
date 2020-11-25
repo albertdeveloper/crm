@@ -33,6 +33,7 @@ class LeadController extends Controller
         Helper::allowed_gate('leads_process');
         return view('admin.leads.process', [
             'leadInfo' => $this->leadRepository->findById($id),
+            'leadSources' => $this->leadRepository->getLeadSources(),
         ]);
     }
 

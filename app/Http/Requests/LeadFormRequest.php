@@ -24,15 +24,10 @@ class LeadFormRequest extends FormRequest
     public function rules()
     {
         return [
+            'owner' => 'required',
             'company' => 'required',
-            'phone' => 'required',
-            'email' => 'required|email|unique:leads,email,' . $this->id,
-            'street' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'zipcode' => 'required',
-            'website' => 'required|url',
-            'country' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
         ];
     }
 
@@ -40,16 +35,10 @@ class LeadFormRequest extends FormRequest
     {
         return [
             'company.required' => 'Company required',
-            'phone.required' => 'Phone required',
-            'email.required' => 'Email address required',
-            'email.email' => 'Email address invalid',
-            'email.unique' => 'Email address already exists',
-            'street.required' => 'Street required',
-            'city.required' => 'City required',
-            'state.required' => 'State required',
-            'zipcode.required' => 'Zipcode required',
-            'website.required'  => 'Website required',
-            'country.required'  => 'Country required'
+            'owner.required' => 'Owner required',
+            'first_name.required' => 'First name required',
+            'last_name.required' => 'Last name required',
+
         ];
     }
 }

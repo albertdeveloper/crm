@@ -15,16 +15,25 @@ class CreateLeadsTable extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
-            $table->string('company');
-            $table->string('phone',50);
-            $table->string('email')->unique();
-            $table->string('street',100);
-            $table->string('city',20);
-            $table->string('state',20);
-            $table->string('zipcode',10);
-            $table->string('website');
-            $table->string('country',20);
+            $table->string('owner',100)->nullable();
+            $table->string('company',100)->nullable();
+            $table->string('first_name',100)->nullable();
+            $table->string('last_name',100)->nullable();
+            $table->string('title',100)->nullable();
+            $table->string('email',100)->nullable();
+            $table->string('phone',20)->nullable();
+            $table->string('fax',20)->nullable();
+            $table->string('mobile',20)->nullable();
+            $table->string('website',20)->nullable();
+            $table->unsignedBigInteger('lead_source_id')->nullable();
+            $table->string('lead_status',30)->nullable();
+            $table->string('industry',100)->nullable();
+            $table->integer('no_employees')->nullable();
+            $table->decimal('annual_revenue',8,2)->nullable();
+            $table->string('rating',10)->nullable();
             $table->timestamps();
+
+            $table->foreign('lead_source_id')->references('id')->on('lead_sources')->onDelete('cascade');
         });
     }
 

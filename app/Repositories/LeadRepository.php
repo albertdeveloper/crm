@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Models\Lead;
+use App\Models\LeadSource;
 
 class LeadRepository implements LeadRepositoryContract
 {
@@ -38,5 +39,12 @@ class LeadRepository implements LeadRepositoryContract
         if(sizeof($ids) == 0) return;
         Lead::whereIn('id',$ids)->delete();
     }
+
+    public function getLeadSources()
+    {
+        return LeadSource::get();
+
+    }
+
 
 }
