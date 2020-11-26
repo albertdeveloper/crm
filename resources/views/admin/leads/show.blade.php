@@ -1,3 +1,3 @@
 <x-app-layout>
-     ads
+ {{$lead_data}}
 </x-app-layout>

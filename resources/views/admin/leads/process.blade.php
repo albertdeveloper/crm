@@ -4,13 +4,15 @@
         @csrf
         <div class="col-md-12">
 
-                <div class="px-2 py-3">
-                    <div class="pull-right text-right">
-                        <button type="submit" class="btn btn-primary">{{($leadInfo) ? 'Update' : 'Create'}} Lead
-                        </button>
-                    </div>
+            <div class="px-2 py-3">
+                <div class="pull-right text-right">
+                    <a class="btn btn-info" href="{{ route('admin.leads.index') }}">
+                        Cancel
+                    </a>
+                    <button type="submit" class="btn btn-primary ml-4">{{($leadInfo) ? 'Update' : 'Create'}} Lead
+                    </button>
                 </div>
-
+            </div>
 
 
             <div class="ml-5">
@@ -138,7 +140,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                             </div>
-                            <input type="number" class="form-control" name="annual_revenue" id="annual_revenue" value="{!! ($leadInfo) ? $leadInfo->annual_revenue : old('annual_revenue')!!}">
+                            <input type="number" class="form-control" name="annual_revenue" id="annual_revenue"
+                                   value="{!! ($leadInfo) ? $leadInfo->annual_revenue : old('annual_revenue')!!}">
 
                         </div>
                     </div>
@@ -211,7 +214,10 @@
 
         <div class="px-2 py-3">
             <div class="pull-right text-right">
-                <button type="submit" class="btn btn-primary">{{($leadInfo) ? 'Update' : 'Create'}} Lead
+                <a class="btn btn-info" href="{{ route('admin.leads.index') }}">
+                    Cancel
+                </a>
+                <button type="submit" class="btn btn-primary ml-4">{{($leadInfo) ? 'Update' : 'Create'}} Lead
                 </button>
             </div>
         </div>

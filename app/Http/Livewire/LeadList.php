@@ -34,6 +34,7 @@ class LeadList extends Component
 
     public function update()
     {
+        Helper::allowed_gate('leads_process');
         return redirect()->route('admin.leads.process',['id'=>$this->actionId[0]]);
     }
 

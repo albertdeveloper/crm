@@ -5,45 +5,17 @@
             <div class="card-header">
                 <h5 class="m-0">Leads List</h5>
             </div>
-
-            <div class="card-body">
+            <div class="col-md-12 mt-3 px-4">
                 <div class="float-right">
-                    <input type="text" class="form-control" wire:model="search"/>
+{{--                    <input type="checkbox" class="ml-2" id="my_leads"> <label for="my_leads"> My leads </label>--}}
                 </div>
+            </div>
+            <div class="card-body">
+
                 @if(sizeOf($leads) > 0)
-                    <div class="float-left">
-
-                        @can('leads_add_contact')
-                            <button class="btn btn-xs btn-success mr-1"
-                                    {{ ($actionId && sizeof($actionId) == 1)  ? '' : 'disabled'}}  wire:click="contacts()">
-                                <i
-                                    class="fas fa-users"></i>
-                                Contacts
-                            </button>
-                        @endcan
-
-
-                        <button class="btn btn-xs btn-primary mr-1"
-                                {{ ($actionId && sizeof($actionId) == 1)  ? '' : 'disabled'}}  wire:click="show()"><i
-                                class="fas fa-eye"></i> View
-                        </button>
-                        @can('leads_process')
-                            <button class="btn btn-xs btn-info mr-1"
-                                    {{($actionId && sizeof($actionId) == 1) ? '' : 'disabled'}}   wire:click="update()">
-                                <i
-                                    class="fas fa-pencil-alt"></i> Update
-                            </button>
-                        @endcan
-                        @can('leads_destroy')
-                            <button class="btn btn-xs btn-danger"
-                                    {{$actionId ? ' ' : 'disabled'}}  wire:click="delete()"><i
-                                    class="fas fa-trash"></i>
-                                Delete
-                            </button>
-                        @endcan
-
-                    </div>
-
+                    @can('list_filters')
+                        @include('livewire.list-filters')
+                    @endcan
                     <div class="mt-5">
                         <table class="table table-bordered table-hove" role="grid"
                                aria-describedby="example2_info">

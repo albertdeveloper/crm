@@ -8,23 +8,9 @@
                 </div>
                 <div class="card-body">
                     @if(sizeOf($users) > 0)
-                        <div class="float-left">
-                            <button class="btn btn-xs btn-primary mr-1"
-                                    {{ ($actionId && sizeof($actionId) == 1) ? '' : 'disabled'}}  wire:click="view()"><i
-                                    class="fas fa-eye"></i> View
-                            </button>
-                            <button class="btn btn-xs btn-info mr-1" {{ ($actionId && sizeof($actionId) == 1) ? '' : 'disabled'}}  wire:click="update()">
-                                <i
-                                    class="fas fa-pencil-alt"></i> Update
-                            </button>
-                            <button class="btn btn-xs btn-danger" {{$actionId ? ' ' : 'disabled'}}  wire:click="delete()" ><i
-                                    class="fas fa-trash"></i>
-                                Delete
-                            </button>
-                        </div>
-                        <div class="float-right">
-                            <input type="text" class="form-control" wire:model="search"/>
-                        </div>
+                        @can('list_filters')
+                            @include('livewire.list-filters')
+                        @endcan
                         <div class="mt-5">
                             <table class="table table-bordered table-hove" role="grid"
                                    aria-describedby="example2_info">

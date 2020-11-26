@@ -226,28 +226,17 @@
                         </li>
                     @endcan
                     @can('leads_access')
-                        <li class="nav-item has-treeview {{ (in_array(Route::currentRouteName(),['admin.leads.index'])) ? 'menu-open' : '' }}">
-                            <a href="#"
-                               class="nav-link {{ (in_array(Route::currentRouteName(),['admin.leads.index'])) ? 'active' : '' }}">
-                                <i class="fas fa-users nav-icon"></i>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.leads.index') }}"
+                               class="nav-link  {{ (in_array(Route::currentRouteName(),['admin.leads.index'])) ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-globe "></i>
                                 <p>
                                     Leads
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-
-                                    <li class="nav-item">
-                                        <a href="{{ route('admin.leads.index') }}"
-                                           class="nav-link {{ (in_array(Route::currentRouteName(),['admin.leads.index'])) ? 'active' : '' }}">
-                                            <i class="fas fa-globe nav-icon"></i>
-                                            <p>List</p>
-                                        </a>
-                                    </li>
-
-
-                            </ul>
                         </li>
+
                     @endcan
 
                     @can('profile_access')
@@ -306,7 +295,7 @@
         <!-- /.content-header -->
 
         <!-- Main content -->
-        <div class="content px-3 py-3">
+        <div class="content mt-3 bg-white">
                 {{ $slot }}
         </div>
         <!-- /.content -->

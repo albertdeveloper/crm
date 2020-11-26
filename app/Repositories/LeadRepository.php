@@ -24,6 +24,7 @@ class LeadRepository implements LeadRepositoryContract
         return Lead::updateOrCreate(
             ['id' => $request->id],
             [
+                'user_id' => auth()->user()->id,
                 'owner' => $request->owner,
                 'company' => $request->company,
                 'first_name' => $request->first_name,
@@ -40,7 +41,6 @@ class LeadRepository implements LeadRepositoryContract
                 'no_employees' => $request->no_employees,
                 'annual_revenue' => $request->annual_revenue,
                 'rating' => $request->rating,
-
                 'street' => $request->street,
                 'city' => $request->city,
                 'state' => $request->state,
