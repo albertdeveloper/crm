@@ -7,9 +7,6 @@
             </div>
 
             <div class="card-body">
-                <div class="float-right">
-                    <input type="text" class="form-control" wire:model="search"/>
-                </div>
                 @if(sizeOf($permissions) > 0)
                     @can('list_filters')
                         @include('livewire.list-filters')

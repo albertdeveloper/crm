@@ -16,29 +16,28 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         $list_default_permissions = array(
-            1 => 'user_management_access',
-            2 => 'users_destroy',
-            3 => 'users_process',
-            4 => 'users_access',
-            5 => 'roles_destroy',
-            6 => 'roles_process',
-            7 => 'roles_access',
-            8 => 'permission_destroy',
-            9 => 'permission_process',
-            10 => 'permission_access',
-            11 => 'profile_access',
-            12 => 'leads_access',
-            13 => 'leads_process',
-            14 => 'leads_destroy',
-            15 => 'leads_show',
+            'user_management_access',
+            'users_destroy',
+            'users_process',
+            'users_access',
+            'roles_destroy',
+            'roles_process',
+            'roles_access',
+            'permission_destroy',
+            'permission_process',
+            'permission_access',
+            'profile_access',
+            'leads_access',
+            'leads_process',
+            'leads_destroy',
+            'leads_show',
+            'list_filters',
         );
 
 
-        foreach($list_default_permissions as $k => $val)
-        {
+        foreach ($list_default_permissions as $k => $val) {
             Permission::updateOrcreate(
-                ['id' => 0],[
-                'id' => $k,
+                ['id' => 0], [
                 'title' => $val
             ]);
         }
