@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Lead;
 use App\Models\LeadSource;
+use App\Models\LeadStatus;
 use Carbon\Carbon;
 
 class LeadRepository implements LeadRepositoryContract
@@ -75,5 +76,10 @@ class LeadRepository implements LeadRepositoryContract
     public function getTodayLeads()
     {
         return Lead::whereDate('created_at', Carbon::today())->get();
+    }
+
+    public function getLeadStatus()
+    {
+        return LeadStatus::get();
     }
 }

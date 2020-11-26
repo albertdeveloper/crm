@@ -34,6 +34,7 @@ class LeadController extends Controller
         return view('admin.leads.process', [
             'leadInfo' => $this->leadRepository->findById($id),
             'leadSources' => $this->leadRepository->getLeadSources(),
+            'leadStatus' => $this->leadRepository->getLeadStatus(),
         ]);
     }
 

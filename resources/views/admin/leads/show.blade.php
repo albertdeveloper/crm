@@ -4,12 +4,13 @@
 
                 <a  href="{{ route('admin.leads.destroy',['id' => $lead_data->id]) }}" class="btn btn-danger btn-xs ml-2 float-right"><i class="fas fa-trash"></i> Delete</a>
                 <a  href="{{ route('admin.leads.process',['id' => $lead_data->id]) }}"  href="#" class="btn btn-success btn-xs float-right"><i class="fas fa-edit"></i> Update</a>
+                <a  href="{{ route('admin.leads.process',['id' => $lead_data->id]) }}"  href="#" class="btn btn-success btn-xs float-right"><i class="fas fa-edit"></i> Convert</a>
 
                 <div class="row">
                     <div class="col-md-1">
-                        <div class="imag float-right"><img src="{{$lead_data->leadDefaultProfilePicture()}}" height="50"></div>
+                        <div class="imag ml-3"><img src="{{$lead_data->leadDefaultProfilePicture()}}" height="50"></div>
                     </div>
-                    <div class="col-md-4 mt-3">
+                    <div class="col-md-3">
                         <h5> {{$lead_data->first_name}} {{$lead_data->last_name}} - <small>{{$lead_data->company}}</small></h5>
                     </div>
                 </div>
@@ -40,7 +41,7 @@
 
 
                 <div class="row mt-5">
-                    <div class="col-md-2 offset-1"><a href="#">Show details <span class="fa fa-arrow-circle-right"></span> </a></div>
+                    <div class="col-md-2 offset-1"><a href="#">Show details <i class="fa fa-arrow-circle-left"></i> </a></div>
                 </div>
                 <div class="details-container" >
                     <div class="row mt-5">

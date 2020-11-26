@@ -46,7 +46,7 @@ class Lead extends Model
 
     public function leadDefaultProfilePicture()
     {
-        return 'https://ui-avatars.com/api/?name=' . urlencode($this->first_name.''.$this->last_name) . '&color=7F9CF5&background=EBF4FF&rounded=true';
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->first_name.''.$this->last_name) . '&color=7F9CF5&background=EBF4FF';
     }
 
 

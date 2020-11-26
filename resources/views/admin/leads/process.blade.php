@@ -113,8 +113,12 @@
 
                     <div class="form-group col-md-6">
                         <label for="title">Lead Status</label>
-                        <x-input type="text" name="lead_status" id="lead_status" class="form-control"
-                                 value="{!! ($leadInfo) ? $leadInfo->lead_status : old('lead_status') !!}"/>
+                        <select class="form-control" name="lead_status" id="lead_status">
+                            <option></option>
+                            @foreach($leadStatus as $status)
+                                <option value="{{$status->id}}" @if($leadInfo->lead_status_id ?? old('lead_status') == $status->id) selected="true" @endif>{{$status->title}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 
