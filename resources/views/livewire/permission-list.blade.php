@@ -7,11 +7,12 @@
             </div>
 
             <div class="card-body">
-                @if(sizeOf($permissions) > 0)
                     @can('list_filters')
                         @include('livewire.list-filters')
                     @endcan
-                    <div class="mt-5">
+
+                 @if(sizeOf($permissions) > 0)
+                    <div class="mt-5 col-m-12">
                         <table class="table table-bordered table-hove" role="grid"
                                aria-describedby="example2_info">
                             <thead>
@@ -32,7 +33,6 @@
                                                wire:click.lazy="setForAction({{$permission->id}})"/> <span
                                             class="ml-2">{{$permission->title}}</span>
                                     </td>
-
                                 </tr>
                             @endforeach
                             </tbody>
@@ -40,8 +40,8 @@
                         {{$permissions->links()}}
                     </div>
                 @else
-                    <div class="alert alert-danger">
-                        No permission found
+                    <div class="alert alert-danger col-md-12 mt-4">
+                        No permission found <b><i>{{$search}}</i></b>
                     </div>
                 @endif
             </div>

@@ -1,5 +1,5 @@
-<div class="col-md-12"  >
-    <div class="float-left">
+<div class="row">
+    <div class="col-md-8">
         <button class="btn btn-xs btn-primary mr-1"
                 {{ ($actionId && sizeof($actionId) == 1)  ? '' : 'disabled'}}  wire:click="show()"><i
                 class="fas fa-eye"></i> View
@@ -16,7 +16,7 @@
                 Delete
             </button>
     </div>
-    <div class="float-right">
-        <input type="text" class="form-control" wire:model="search"/>
+    <div  class="col-md-4">
+        <input type="text" class="form-control float-right" wire:model.debounce.500ms="search"/>
     </div>
 </div>

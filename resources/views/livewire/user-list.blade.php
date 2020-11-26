@@ -7,10 +7,10 @@
                     <h5 class="m-0">Roles List</h5>
                 </div>
                 <div class="card-body">
+                    @can('list_filters')
+                        @include('livewire.list-filters')
+                    @endcan
                     @if(sizeOf($users) > 0)
-                        @can('list_filters')
-                            @include('livewire.list-filters')
-                        @endcan
                         <div class="mt-5">
                             <table class="table table-bordered table-hove" role="grid"
                                    aria-describedby="example2_info">
@@ -51,7 +51,7 @@
                             {{$users->links()}}
                         </div>
                     @else
-                        <div class="alert alert-danger">
+                        <div class="alert alert-danger mt-3">
                             No roles found
                         </div>
                     @endif

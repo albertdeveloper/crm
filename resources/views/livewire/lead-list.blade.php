@@ -11,11 +11,12 @@
                 </div>
             </div>
             <div class="card-body">
+                @can('list_filters')
+                    @include('livewire.list-filters')
+                @endcan
 
                 @if(sizeOf($leads) > 0)
-                    @can('list_filters')
-                        @include('livewire.list-filters')
-                    @endcan
+
                     <div class="mt-5">
                         <table class="table table-bordered table-hove" role="grid"
                                aria-describedby="example2_info">
@@ -67,7 +68,7 @@
                         {{$leads->links()}}
                     </div>
                 @else
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger mt-3">
                         No Leads found
                     </div>
                 @endif

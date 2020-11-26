@@ -7,21 +7,24 @@
                     <h5 class="m-0">Roles List</h5>
                 </div>
                 <div class="card-body">
+
+                    @can('list_filters')
+                        @include('livewire.list-filters')
+                    @endcan
                     @if(sizeOf($roles) > 0)
-                        @can('list_filters')
-                            @include('livewire.list-filters')
-                        @endcan
                         <div class="mt-5">
                             <table class="table table-bordered table-hove" role="grid"
                                    aria-describedby="example2_info">
                                 <thead>
                                 <tr role="row">
-                                    <th class="sorting_asc " tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                    <th class="sorting_asc " tabindex="0" aria-controls="example2" rowspan="1"
+                                        colspan="1"
                                         aria-sort="ascending"
                                         aria-label="Rendering engine: activate to sort column descending">
                                         <span class="ml-4">Title</span>
                                     </th>
-                                    <th class="sorting_asc   " tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                    <th class="sorting_asc   " tabindex="0" aria-controls="example2" rowspan="1"
+                                        colspan="1"
                                         aria-sort="ascending"
                                         aria-label="Rendering engine: activate to sort column descending">
                                         <span class="ml-4">Permissions</span>
@@ -40,7 +43,8 @@
                                         </td>
                                         <td>
                                             @foreach($role->permissions as $permission)
-                                                <button class="btn btn-primary btn-sm mt-1 ml-1">{{$permission->title}}</button>
+                                                <button
+                                                    class="btn btn-primary btn-sm mt-1 ml-1">{{$permission->title}}</button>
                                             @endforeach
                                         </td>
                                     </tr>
@@ -50,7 +54,7 @@
                             {{$roles->links()}}
                         </div>
                     @else
-                        <div class="alert alert-danger">
+                        <div class="alert alert-danger mt-4">
                             No roles found
                         </div>
                     @endif
