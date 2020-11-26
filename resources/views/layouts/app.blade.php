@@ -349,6 +349,14 @@
 <script src="{{ asset('AdminLTE-3.0.5/plugins/select2/js/select2.full.min.js') }}"></script>
 
 @stack('scripts')
+
+<script>
+    $(document).ready(function()
+    {
+        $('input.actionBox:checkbox').prop('checked', false);
+    })
+</script>
+
 @livewireScripts
 
 </body>

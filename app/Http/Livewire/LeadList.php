@@ -15,11 +15,12 @@ class LeadList extends Component
     private $leadRepository;
     public $search;
     public $actionId = array();
-
+    public $actionBox;
 
     public function __construct()
     {
         $this->leadRepository = new LeadRepository();
+
     }
 
     public function setForAction($id)

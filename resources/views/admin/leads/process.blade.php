@@ -138,7 +138,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                             </div>
-                            <input type="number" class="form-control">
+                            <input type="number" class="form-control" name="annual_revenue" id="annual_revenue" value="{!! ($leadInfo) ? $leadInfo->annual_revenue : old('annual_revenue')!!}">
 
                         </div>
                     </div>

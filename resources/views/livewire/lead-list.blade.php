@@ -75,7 +75,7 @@
                             @foreach($leads as $lead)
                                 <tr role="row">
                                     <td tabindex="0" class="sorting_1">
-                                        <input type="checkbox" class="mt-1" name="permission[]"
+                                        <input type="checkbox"  class="mt-1 actionBox"  name="permission[]"
                                                wire:click.lazy="setForAction({{$lead->id}})"/> <span
                                             class="ml-2">{{$lead->company}}</span>
                                     </td>
@@ -103,4 +103,3 @@
         </div>
     </div>
 </div>
-
