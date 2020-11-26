@@ -1,10 +1,19 @@
 <x-app-layout>
         <div class="card">
-            <div class="card-header px-3 py-3">
+            <div class="card-header  ">
 
                 <a  href="{{ route('admin.leads.destroy',['id' => $lead_data->id]) }}" class="btn btn-danger btn-xs ml-2 float-right"><i class="fas fa-trash"></i> Delete</a>
                 <a  href="{{ route('admin.leads.process',['id' => $lead_data->id]) }}"  href="#" class="btn btn-success btn-xs float-right"><i class="fas fa-edit"></i> Update</a>
-                <h5> {{$lead_data->first_name}} {{$lead_data->last_name}} - <small>{{$lead_data->company}}</small></h5>
+
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="imag float-right"><img src="{{$lead_data->leadDefaultProfilePicture()}}" height="50"></div>
+                    </div>
+                    <div class="col-md-4 mt-3">
+                        <h5> {{$lead_data->first_name}} {{$lead_data->last_name}} - <small>{{$lead_data->company}}</small></h5>
+                    </div>
+                </div>
+
 
             </div>
 

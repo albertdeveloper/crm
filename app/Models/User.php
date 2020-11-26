@@ -46,6 +46,7 @@ class User extends Authenticatable
     {
         return 'https://ui-avatars.com/api/?name=' . urlencode($this->name) . '&color=7F9CF5&background=EBF4FF&rounded=true';
     }
+
     public function roles()
     {
         return $this->belongsToMany('App\Models\Role')->withTimestamps();
