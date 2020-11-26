@@ -75,9 +75,9 @@ class LeadController extends Controller
 
     public function convert($id)
     {
-
-        return view('admin.leads.convert');
-
+        return view('admin.leads.convert',[
+            'lead_data' => $this->leadRepository->findById($id),
+        ]);
     }
 
 }
