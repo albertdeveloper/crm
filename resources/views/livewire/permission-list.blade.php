@@ -1,4 +1,4 @@
-<div>
+<div class="col-md-12">
     <a href="{{ route('admin.permissions.process') }}" class="btn btn-primary">Add Permission</a>
     <div class="mt-3">
         <div class="card">
@@ -17,7 +17,7 @@
 
                             <thead>
                             <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                <th class="sorting_asc px-3 py-3" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                     aria-sort="ascending"
                                     aria-label="Rendering engine: activate to sort column descending">
                                     <span class="ml-4">Title</span>
@@ -28,7 +28,7 @@
 
                             @foreach($permissions as $permission)
                                 <tr role="row">
-                                    <td tabindex="0" class="sorting_1">
+                                    <td tabindex="0" class="sorting_1 px-3 py-3">
                                         <input type="checkbox" class="mt-1 actionBox"  name="permission[]"
                                                wire:click.lazy="setForAction({{$permission->id}})"/> <span
                                             class="ml-2">{{$permission->title}}</span>

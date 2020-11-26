@@ -48,7 +48,7 @@ class UserList extends Component
     public function render()
     {
         return view('livewire.user-list',[
-            'users' => $this->userRepository->getAllUserForAdmin($this->search) ?? [],
+            'users' => $this->userRepository->getAllUserForAdminLivewire($this->search) ?? [],
         ]);
     }
 }

@@ -19,7 +19,7 @@ class LeadRepository implements LeadRepositoryContract
                     ->orWhere('phone', 'like', $search_field);
             });
         }
-
+        $query->orderBy('created_at','desc');
         return $query->paginate();
     }
 

@@ -8,4 +8,5 @@ interface UserRepositoryContract
     public function findProfileInfo();
     public function save_profile($request);
     public function save($id);
+    public function getAllUserForAdminLivewire($search = false);
 }

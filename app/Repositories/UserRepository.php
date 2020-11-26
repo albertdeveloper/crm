@@ -41,11 +41,16 @@ class UserRepository implements UserRepositoryContract
         );
     }
 
-    public function getAllUserForAdmin()
+    public function getAllUserForAdminLivewire($search = false)
     {
-        return User::whereHas('roles', function ($query) {
+        $query = User::query();
+        $query->whereHas('roles', function ($query) {
             return $query->where('title', 'User');
-        })->paginate();
+        });
+        if($search) {
+            $query->where('name','like','%'.$search.'%');
+        }
+        return $query->paginate();
     }
 
     public function save($request)
