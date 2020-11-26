@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Helper\Helper;
 use App\Http\Requests\LeadFormRequest;
 use App\Repositories\LeadRepositoryContract;
-use Illuminate\Http\Request;
 
 class LeadController extends Controller
 {
@@ -72,6 +71,13 @@ class LeadController extends Controller
         $this->leadRepository->findById($id);
         $this->leadRepository->destroy($id);
         return redirect()->route('admin.leads.index');
+    }
+
+    public function convert($id)
+    {
+
+        return view('admin.leads.convert');
+
     }
 
 }

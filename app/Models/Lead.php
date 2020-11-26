@@ -22,7 +22,7 @@ class Lead extends Model
         'mobile',
         'website',
         'lead_source_id' ,
-        'lead_status',
+        'lead_status_id',
         'industry',
         'no_employees',
         'annual_revenue' ,
@@ -42,6 +42,11 @@ class Lead extends Model
     public function leadSource()
     {
         return $this->belongsTo('App\Models\LeadSource');
+    }
+
+    public function leadStatus()
+    {
+        return $this->belongsTo('App\Models\LeadStatus');
     }
 
     public function leadDefaultProfilePicture()

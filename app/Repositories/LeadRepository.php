@@ -47,7 +47,7 @@ class LeadRepository implements LeadRepositoryContract
                 'mobile' => $request->mobile,
                 'website' => $request->website,
                 'lead_source_id' => $request->lead_source,
-                'lead_status' => $request->lead_status,
+                'lead_status_id' => $request->lead_status,
                 'industry' => $request->industry,
                 'no_employees' => $request->no_employees,
                 'annual_revenue' => $request->annual_revenue,

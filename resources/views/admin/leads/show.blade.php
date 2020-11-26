@@ -4,7 +4,7 @@
 
                 <a  href="{{ route('admin.leads.destroy',['id' => $lead_data->id]) }}" class="btn btn-danger btn-xs ml-2 float-right"><i class="fas fa-trash"></i> Delete</a>
                 <a  href="{{ route('admin.leads.process',['id' => $lead_data->id]) }}"  href="#" class="btn btn-success btn-xs float-right"><i class="fas fa-edit"></i> Update</a>
-                <a  href="{{ route('admin.leads.process',['id' => $lead_data->id]) }}"  href="#" class="btn btn-success btn-xs float-right"><i class="fas fa-edit"></i> Convert</a>
+                <a  href="{{ route('admin.leads.convert',['id' => $lead_data->id]) }}"  href="#" class="btn btn-success btn-xs float-right mr-2"><i class="fas fa-bars"></i> Convert </a>
 
                 <div class="row">
                     <div class="col-md-1">
@@ -37,6 +37,12 @@
                 <div class="row mt-4">
                     <div class="col-md-2 offset-1" style="color: #9e9e9e">Mobile</div>
                     <div class="col-md-3">{{$lead_data->mobile}}</div>
+                </div>
+
+
+                <div class="row mt-4">
+                    <div class="col-md-2 offset-1" style="color: #9e9e9e">Lead Status</div>
+                    <div class="col-md-3">{{$lead_data->leadStatus->title}}</div>
                 </div>
 
 

@@ -50,6 +50,7 @@ Route::group([
     Route::post('/process/user/{id?}',[UserController::class,'store']);
 
 
+    Route::get('/convert/leads/{id}',[LeadController::class, 'convert'])->name('leads.convert');
     Route::get('/leads', [LeadController::class, 'index'])->name('leads.index');
     Route::get('/process/leads/{id?}', [LeadController::class, 'process'])->name('leads.process');
     Route::get('/delete/lead/{id}',[LeadController::class, 'destroy'])->name('leads.destroy');
