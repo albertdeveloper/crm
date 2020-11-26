@@ -9,4 +9,5 @@ interface LeadRepositoryContract
     public function process($request);
     public function getLeadSources();
     public function destroy($id);
+    public function getTodayLeads();
 }

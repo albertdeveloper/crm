@@ -31,9 +31,16 @@ class Lead extends Model
         'state',
         'zipcode',
         'country',
+
     ];
 
     public $casts = [
         'id' => 'integer'
     ];
+
+    public function leadSource()
+    {
+        return $this->belongsTo('App\Models\LeadSource');
+    }
+
 }

@@ -1,17 +1,49 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+  <div class="row">
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
-        </div>
-    </div>
+
+      <div class="col-md-6">
+      <div class="card">
+          <div class="card-header border-transparent">
+              <h3 class="card-title">Today's Lead</h3>
+
+              <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                  </button>
+
+              </div>
+          </div>
+          <div class="card-body p-0">
+              <div class="table-responsive">
+                  <table class="table m-0">
+                      <thead>
+                      <tr>
+                          <th>Company</th>
+                          <th>Email</th>
+                          <th>Phone</th>
+                          <th>Lead Source</th>
+                          <th>Lead Owner</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                            @foreach($leads as $lead)
+                                <tr>
+                                    <td>{{$lead->company}}</td>
+                                    <td>{{$lead->email}}</td>
+                                    <td>{{$lead->phone}}</td>
+                                    <td>{{$lead->leadSource->title}}</td>
+                                    <td>{{$lead->owner}}</td>
+                                </tr>
+                            @endforeach
+
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+
+      </div>
+  </div>
+  </div>
+
 </x-app-layout>
