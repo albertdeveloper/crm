@@ -39,10 +39,7 @@
                                                 class="ml-2">{{$user->name}}</span>
                                         </td>
                                         <td>
-
-                                            @foreach($user->roles as $role)
-                                                <button class="btn btn-primary btn-sm">{{$role->title}}</button>
-                                            @endforeach
+                                            <button class="btn btn-primary btn-sm">{{$user->roles[0]->title}}</button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -52,7 +49,7 @@
                         </div>
                     @else
                         <div class="alert alert-danger mt-3">
-                            No roles found
+                            No user found
                         </div>
                     @endif
                 </div>

@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 interface LeadRepositoryContract
 {
-    public function getAllViaLivewire();
+    public function getAllViaLivewire($search = false);
     public function findById($id = false);
     public function process($request);
     public function getLeadSources();

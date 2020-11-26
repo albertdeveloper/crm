@@ -51,6 +51,7 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Role')->withTimestamps();
     }
 
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);

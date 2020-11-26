@@ -8,9 +8,19 @@ use Carbon\Carbon;
 
 class LeadRepository implements LeadRepositoryContract
 {
-    public function getAllViaLivewire()
+    public function getAllViaLivewire($search = false)
     {
-        return Lead::paginate();
+        $query = Lead::query();
+        if ($search) {
+            $search_field = '%' . $search . '%';
+            $query->where(function ($q) use ($search_field) {
+                $q->where('company', 'like', $search_field)
+                    ->orWhere('email', 'like', $search_field)
+                    ->orWhere('phone', 'like', $search_field);
+            });
+        }
+
+        return $query->paginate();
     }
 
     public function findById($id = false)
