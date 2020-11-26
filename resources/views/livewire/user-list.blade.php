@@ -12,8 +12,7 @@
                     @endcan
                     @if(sizeOf($users) > 0)
                         <div class="mt-5">
-                            <table class="table table-bordered table-hove" role="grid"
-                                   aria-describedby="example2_info">
+                            <table class="table shadow-sm table-striped table-valign-middle mt-2">
                                 <thead>
                                 <tr role="row">
                                     <th class="sorting_asc " tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
