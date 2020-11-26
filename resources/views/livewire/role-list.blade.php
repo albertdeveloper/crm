@@ -1,6 +1,6 @@
 <div class="col-md-12">
     <div>
-        <a href="{{ route('admin.roles.process') }}" class="btn btn-primary">Add Role</a>
+        <a href="{{ route('admin.roles.process') }}" class="btn btn-sm btn-primary">Add Role</a>
         <div class="mt-3">
             <div class="card">
                 <div class="card-header">

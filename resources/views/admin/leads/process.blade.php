@@ -6,10 +6,10 @@
 
             <div class="px-2 py-3">
                 <div class="pull-right text-right">
-                    <a class="btn btn-info" href="{{ route('admin.leads.index') }}">
+                    <a class="btn btn-sm btn-info" href="{{ route('admin.leads.index') }}">
                         Cancel
                     </a>
-                    <button type="submit" class="btn btn-primary ml-4">{{($leadInfo) ? 'Update' : 'Create'}} Lead
+                    <button type="submit" class="btn btn-sm btn-primary ml-3">{{($leadInfo) ? 'Update' : 'Create'}} Lead
                     </button>
                 </div>
             </div>
@@ -214,10 +214,10 @@
 
         <div class="px-2 py-3">
             <div class="pull-right text-right">
-                <a class="btn btn-info" href="{{ route('admin.leads.index') }}">
+                <a class="btn btn-info btn-sm" href="{{ route('admin.leads.index') }}">
                     Cancel
                 </a>
-                <button type="submit" class="btn btn-primary ml-4">{{($leadInfo) ? 'Update' : 'Create'}} Lead
+                <button type="submit" class="btn btn-sm btn-primary ml-3">{{($leadInfo) ? 'Update' : 'Create'}} Lead
                 </button>
             </div>
         </div>

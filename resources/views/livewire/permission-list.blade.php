@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <a href="{{ route('admin.permissions.process') }}" class="btn btn-primary">Add Permission</a>
+    <a href="{{ route('admin.permissions.process') }}" class="btn btn-sm btn-primary">Add Permission</a>
     <div class="mt-3">
         <div class="card">
             <div class="card-header">

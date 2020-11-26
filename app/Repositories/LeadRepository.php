@@ -61,6 +61,7 @@ class LeadRepository implements LeadRepositoryContract
 
     public function destroy($ids)
     {
+        if(!is_array($ids))  $ids = array($ids);
         if (sizeof($ids) == 0) return;
         Lead::whereIn('id', $ids)->delete();
     }

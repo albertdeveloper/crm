@@ -7,7 +7,7 @@
             <button class="btn btn-xs btn-info mr-1"
                     {{($actionId && sizeof($actionId) == 1) ? '' : 'disabled'}}   wire:click="update()">
                 <i
-                    class="fas fa-pencil-alt"></i> Update
+                    class="fas fa-edit"></i> Update
             </button>
 
             <button class="btn btn-xs btn-danger"

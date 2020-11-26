@@ -1,9 +1,9 @@
 <div class="col-md-12">
-    <a href="{{ route('admin.leads.process') }}" class="btn btn-primary">Add New Lead</a>
+    <a href="{{ route('admin.leads.process') }}" class="btn btn-sm btn-primary">Add New Lead</a>
     <div class="mt-3">
         <div class="card">
             <div class="card-header">
-                <h5 class="m-0">Leads List</h5>
+                <h5 class="m-0">Leads</h5>
             </div>
             <div class="col-md-8 mt-3 px-4">
                 <div class="float-right">
@@ -16,7 +16,7 @@
                 @endcan
 
                 @if(sizeOf($leads) > 0)
-                        <div class="col-md-12">
+
                             <table class="table shadow-sm table-striped table-valign-middle mt-2">
                                 <thead>
 
@@ -64,7 +64,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        </div>
+
                         {{$leads->links()}}
                     </div>
                 @else
@@ -76,3 +76,4 @@
         </div>
     </div>
 </div>
+

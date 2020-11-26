@@ -65,5 +65,12 @@ class LeadController extends Controller
         ]);
     }
 
+    public function destroy($id)
+    {
+        Helper::allowed_gate('leads_destroy');
+        $this->leadRepository->findById($id);
+        $this->leadRepository->destroy($id);
+        return redirect()->route('admin.leads.index');
+    }
 
 }
