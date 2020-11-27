@@ -34,13 +34,13 @@ class ContactList extends Component
 
     public function update()
     {
-        Helper::allowed_gate('leads_process');
-        return redirect()->route('admin.leads.process',['id'=>$this->actionId[0]]);
+
+        return redirect()->route('admin.contacts.process',['id'=>$this->actionId[0]]);
     }
 
     public function show()
     {
-        return redirect()->route('admin.leads.show',['id'=>$this->actionId[0]]);
+        return redirect()->route('admin.contacts.show',['id'=>$this->actionId[0]]);
     }
 
     public function delete()

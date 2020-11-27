@@ -33,6 +33,8 @@ class PermissionSeeder extends Seeder
             'leads_show',
             'list_filters',
             'leads_convert_process',
+            'contacts_process',
+            'contacts_access'
         );
 
 

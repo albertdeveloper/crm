@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\Helper;
+use App\Repositories\LeadRepositoryContract;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+    private $leadRepository;
+
+    public function __construct(LeadRepositoryContract $leadRepositoryContract)
+    {
+        $this->leadRepository = $leadRepositoryContract;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,6 +21,8 @@ class ContactController extends Controller
      */
     public function index()
     {
+
+        Helper::allowed_gate('contacts_access');
         return view('admin.contacts.index');
     }
 
@@ -45,7 +55,10 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        //
+    Helper::allowed_gate('contacts_process');
+        return view('admin.contacts.show',[
+            'lead_data' => $this->leadRepository->findById($id),
+        ]);
     }
 
     /**

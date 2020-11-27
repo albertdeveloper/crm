@@ -2,11 +2,10 @@
     {{-- Care about people's approval and you will be their prisoner. --}}
 </div>
 <div class="col-md-12">
-    <a href="{{ route('admin.leads.process') }}" class="btn btn-sm btn-primary">Add New Contact</a>
     <div class="mt-3">
         <div class="card">
             <div class="card-header">
-                <h5 class="m-0">Contacts</h5>
+                <h5 class="m-0">Accounts</h5>
             </div>
             <div class="col-md-8 mt-3 px-4">
                 <div class="float-right">
