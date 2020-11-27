@@ -16,6 +16,7 @@ class CreateLeadsTable extends Migration
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->integer('lead_type')->default(1)->comment('1 - Lead, 2 - Converted to Contact & Account,3 - Deals');
             $table->string('owner',100)->nullable();
             $table->string('company',100)->nullable();
             $table->string('first_name',100)->nullable();

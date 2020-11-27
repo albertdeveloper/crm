@@ -87,6 +87,7 @@ class LeadController extends Controller
         Helper::allowed_gate('leads_convert_process');
         $this->leadRepository->findById($id);
         $this->leadRepository->convert($id);
+        return redirect()->route('admin.leads.index');
     }
 
 }

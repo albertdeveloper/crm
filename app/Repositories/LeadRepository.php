@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 class LeadRepository implements LeadRepositoryContract
 {
-    public function getAllViaLivewire($search = false)
+    public function getAllViaLivewireLeads($search = false)
     {
         $query = Lead::query();
         if ($search) {
@@ -20,6 +20,7 @@ class LeadRepository implements LeadRepositoryContract
                     ->orWhere('phone', 'like', $search_field);
             });
         }
+        $query->where('lead_type',1);
         $query->orderBy('created_at','desc');
         return $query->paginate();
     }
@@ -85,6 +86,9 @@ class LeadRepository implements LeadRepositoryContract
 
     public function convert($id)
     {
-
+        $this->findById($id);
+        $lead = Lead::find($id);
+        $lead->lead_type = 2;
+        $lead->save();
     }
 }

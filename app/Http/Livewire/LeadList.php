@@ -58,7 +58,7 @@ class LeadList extends Component
     public function render()
     {
         return view('livewire.lead-list',[
-            'leads' => $this->leadRepository->getAllViaLivewire($this->search),
+            'leads' => $this->leadRepository->getAllViaLivewireLeads($this->search),
         ]);
     }
 }

@@ -32,6 +32,7 @@ class PermissionSeeder extends Seeder
             'leads_destroy',
             'leads_show',
             'list_filters',
+            'leads_convert_process',
         );
 
 
