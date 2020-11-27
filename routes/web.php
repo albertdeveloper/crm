@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\PermissionController;
@@ -58,6 +59,12 @@ Route::group([
     Route::get('/delete/lead/{id}',[LeadController::class, 'destroy'])->name('leads.destroy');
     Route::post('/process/leads/{id?}', [LeadController::class, 'store']);
     Route::get('/leads/{id}',[LeadController::class, 'show'])->name('leads.show');
+
+
+
+    Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.index');
+    Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+
 
 });
 

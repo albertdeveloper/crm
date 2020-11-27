@@ -2,25 +2,25 @@
 
 namespace App\Http\Livewire;
 
-use App\Repositories\ContactRepository;
+use App\Helper\Helper;
 use App\Repositories\LeadRepository;
 use Livewire\Component;
 use Livewire\WithPagination;
+
 class ContactList extends Component
 {
     use WithPagination;
 
-    public $lead_id;
     protected $paginationTheme = 'bootstrap';
-    private $contactRepository;
+    private $leadRepository;
     public $search;
     public $actionId = array();
-
-
+    public $actionBox;
 
     public function __construct()
     {
-        $this->contactRepository = new ContactRepository();
+        $this->leadRepository = new LeadRepository();
+
     }
 
     public function setForAction($id)
@@ -34,25 +34,31 @@ class ContactList extends Component
 
     public function update()
     {
-        return redirect()->route('admin.permissions.process',['id'=>$this->actionId[0] ]);
+        Helper::allowed_gate('leads_process');
+        return redirect()->route('admin.leads.process',['id'=>$this->actionId[0]]);
     }
 
-    public function setPrimary()
+    public function show()
     {
-        $this->contactRepository->setPrimary($this->actionId[0]);
+        return redirect()->route('admin.leads.show',['id'=>$this->actionId[0]]);
     }
 
     public function delete()
     {
-        Help::allowed_gate('permission_destroy');
-        $this->contactRepository->delete($this->actionId);
+        Helper::allowed_gate('leads_destroy');
+        $this->leadRepository->destroy($this->actionId);
     }
+
+    public function contacts()
+    {
+        return redirect()->route('admin.leads.contact',['lead_id' => $this->actionId[0]]);
+    }
+
 
     public function render()
     {
-
         return view('livewire.contact-list',[
-            'leadContacts' => $this->contactRepository->getAllViaLivewire($this->lead_id),
+            'leads' => $this->leadRepository->getAllViaLivewire($this->search,2),
         ]);
     }
 }

@@ -7,7 +7,7 @@ use App\Repositories\LeadRepository;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class LeadList extends Component
+class AccountList extends Component
 {
     use WithPagination;
 
@@ -57,8 +57,8 @@ class LeadList extends Component
 
     public function render()
     {
-        return view('livewire.lead-list',[
-            'leads' => $this->leadRepository->getAllViaLivewire($this->search,1),
+        return view('livewire.account-list',[
+            'leads' => $this->leadRepository->getAllViaLivewire($this->search,2),
         ]);
     }
 }

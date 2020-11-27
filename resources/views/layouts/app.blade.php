@@ -242,8 +242,8 @@
                     @can('leads_access')
 
                         <li class="nav-item">
-                            <a href="{{ route('admin.leads.index') }}"
-                               class="nav-link  {{ (in_array(Route::currentRouteName(),['admin.leads.index'])) ? 'active' : '' }}">
+                            <a href="{{ route('admin.contacts.index') }}"
+                               class="nav-link  {{ (in_array(Route::currentRouteName(),['admin.contacts.index'])) ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-users-cog "></i>
                                 <p>
                                     Contacts
@@ -256,8 +256,8 @@
                     @can('leads_access')
 
                         <li class="nav-item">
-                            <a href="{{ route('admin.leads.index') }}"
-                               class="nav-link  {{ (in_array(Route::currentRouteName(),['admin.leads.index'])) ? 'active' : '' }}">
+                            <a href="{{ route('admin.accounts.index') }}"
+                               class="nav-link  {{ (in_array(Route::currentRouteName(),['admin.account.index'])) ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-briefcase "></i>
                                 <p>
                                     Accounts
