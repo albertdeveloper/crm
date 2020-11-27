@@ -76,7 +76,7 @@ class LeadRepository implements LeadRepositoryContract
 
     public function getTodayLeads()
     {
-        return Lead::whereDate('created_at', Carbon::today())->get();
+        return Lead::where('lead_type',1)->whereDate('created_at', Carbon::today())->get();
     }
 
     public function getLeadStatus()

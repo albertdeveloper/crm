@@ -2,7 +2,7 @@
   <div class="row">
 
 
-      <div class="col-md-6">
+      <div class="col-md-12">
       <div class="card">
           <div class="card-header border-transparent">
               <h3 class="card-title">Today's Lead</h3>
@@ -20,6 +20,7 @@
                   <table class="table m-0">
                       <thead>
                       <tr>
+                          <th>Lead Name</th>
                           <th>Company</th>
                           <th>Email</th>
                           <th>Phone</th>
@@ -30,6 +31,7 @@
                       <tbody>
                             @foreach($leads as $lead)
                                 <tr>
+                                    <td><a href="{{ route('admin.leads.show',['id'=>$lead->id]) }}">{{$lead->first_name}}  {{$lead->last_name}}</a></td>
                                     <td>{{$lead->company}}</td>
                                     <td>{{$lead->email}}</td>
                                     <td>{{$lead->phone}}</td>
