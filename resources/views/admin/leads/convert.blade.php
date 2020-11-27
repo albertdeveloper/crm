@@ -25,8 +25,12 @@
 
             <div class="row mt-4">
                 <div class="col-md-12">
-                    <button class="btn btn-sm btn-primary">Convert</button>
+                    <form method="POST">
+                     @csrf
+                    <button href="" class="btn btn-sm btn-primary">Convert</button>
+
                     <a href="{{ route('admin.leads.show',['id' => $lead_data->id]) }}" class="btn btn-sm btn-default ml-2">Cancel</a>
+                    </form>
                 </div>
             </div>
         </div>

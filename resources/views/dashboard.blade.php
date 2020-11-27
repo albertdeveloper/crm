@@ -2,7 +2,7 @@
   <div class="row">
 
 
-      <div class="col-md-8">
+      <div class="col-md-6">
       <div class="card">
           <div class="card-header border-transparent">
               <h3 class="card-title">Today's Lead</h3>
@@ -15,6 +15,7 @@
               </div>
           </div>
           <div class="card-body p-0">
+              @if(sizeof($leads) > 0)
               <div class="table-responsive">
                   <table class="table m-0">
                       <thead>
@@ -40,6 +41,15 @@
                       </tbody>
                   </table>
               </div>
+              @else
+                  <div  style="height: 200px">
+                      <div class="row align-items-center h-100">
+                          <div class="mx-auto">
+                                 No leads found
+                          </div>
+                      </div>
+                  </div>
+                  @endif
           </div>
 
       </div>

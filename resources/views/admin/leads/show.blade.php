@@ -20,7 +20,7 @@
 
             <div class="card-body ">
                 <div class="row">
-                    <div class="col-md-2 offset-1" style="color: #9e9e9e">Lead Owner</div>
+                    <div class="col-md-2 offset-1" style="color: #9e9e9e">Lead Owner</div>d
                     <div class="col-md-3">{{$lead_data->owner}}</div>
                 </div>
 

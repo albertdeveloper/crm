@@ -82,4 +82,9 @@ class LeadRepository implements LeadRepositoryContract
     {
         return LeadStatus::get();
     }
+
+    public function convert($id)
+    {
+
+    }
 }

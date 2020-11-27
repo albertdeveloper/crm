@@ -6,6 +6,7 @@ use App\Helper\Helper;
 use App\Http\Requests\LeadFormRequest;
 use App\Repositories\LeadRepositoryContract;
 
+
 class LeadController extends Controller
 {
     private $leadRepository;
@@ -75,9 +76,17 @@ class LeadController extends Controller
 
     public function convert($id)
     {
+        Helper::allowed_gate('leads_convert_process');
         return view('admin.leads.convert',[
             'lead_data' => $this->leadRepository->findById($id),
         ]);
+    }
+
+    public function convert_store($id)
+    {
+        Helper::allowed_gate('leads_convert_process');
+        $this->leadRepository->findById($id);
+        $this->leadRepository->convert($id);
     }
 
 }

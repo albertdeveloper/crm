@@ -11,4 +11,5 @@ interface LeadRepositoryContract
     public function destroy($id);
     public function getTodayLeads();
     public function getLeadStatus();
+    public function convert($id);
 }
